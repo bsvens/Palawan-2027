@@ -55,11 +55,11 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   position:absolute;inset:0;
   background:
     linear-gradient(to bottom,
-      rgba(3,8,13,0.45) 0%,
-      rgba(3,8,13,0.0) 25%,
-      rgba(3,8,13,0.0) 55%,
-      rgba(3,8,13,0.75) 85%,
-      rgba(3,8,13,0.95) 100%);
+      rgba(3,8,13,0.65) 0%,
+      rgba(3,8,13,0.4) 25%,
+      rgba(3,8,13,0.45) 55%,
+      rgba(3,8,13,0.82) 82%,
+      rgba(3,8,13,0.97) 100%);
 }
 /* Villa door frame effect — two vertical bars fade in */
 .door-frame{
@@ -93,7 +93,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   font-size:0.56rem;letter-spacing:0.35em;text-transform:uppercase;
   color:var(--teal2);
   opacity:0;animation:rise 0.8s ease 0.5s forwards;
-  text-shadow:0 0 20px rgba(5,232,216,0.6);
+  text-shadow:0 0 20px rgba(5,232,216,0.6), 0 1px 8px rgba(3,8,13,0.95);
 }
 .s-headline{
   font-family:'Cormorant Garamond',serif;
@@ -101,13 +101,15 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   font-weight:300;line-height:0.88;letter-spacing:-0.03em;
   margin:14px 0 8px;
   opacity:0;animation:rise 0.9s ease 0.75s forwards;
+  text-shadow:0 2px 24px rgba(3,8,13,0.8), 0 1px 4px rgba(3,8,13,0.9);
 }
 .s-headline em{font-style:italic;color:var(--sand);}
 .s-sub{
   font-family:'Inter',sans-serif;
   font-size:0.85rem;font-weight:300;
-  color:rgba(255,255,255,0.52);letter-spacing:0.05em;
+  color:rgba(255,255,255,0.75);letter-spacing:0.05em;
   opacity:0;animation:rise 0.8s ease 1.0s forwards;
+  text-shadow:0 1px 8px rgba(3,8,13,0.9);
 }
 /* BREEZE LINE — animated teal separator */
 .breeze-line{
@@ -126,11 +128,12 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 }
 .tap-ring{
   width:68px;height:68px;border-radius:50%;
-  border:1px solid rgba(15,184,212,0.5);
+  border:1px solid rgba(15,184,212,0.7);
   display:flex;align-items:center;justify-content:center;
   position:relative;
   transition:transform 0.15s,border-color 0.2s;
-  background:rgba(15,184,212,0.08);
+  background:rgba(3,8,13,0.5);
+  backdrop-filter:blur(12px);
 }
 #tap-btn:active .tap-ring{transform:scale(0.93);}
 .tap-ring::after{
@@ -143,7 +146,8 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 .tap-label{
   font-family:'Space Mono',monospace;
   font-size:0.54rem;letter-spacing:0.22em;text-transform:uppercase;
-  color:var(--teal);
+  color:var(--teal2);
+  text-shadow:0 1px 8px rgba(3,8,13,0.9);
 }
 /* wind particles */
 .particle{
@@ -230,19 +234,21 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 .hscroll-wrap::-webkit-scrollbar{display:none;}
 .hscroll{display:flex;gap:12px;width:max-content;padding-bottom:4px;}
 .hcard{
-  width:240px;height:300px;border-radius:16px;overflow:hidden;
+  width:220px;height:280px;border-radius:16px;overflow:hidden;
   position:relative;flex-shrink:0;
   transition:transform 0.2s;
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:18px;
 }
 .hcard:active{transform:scale(0.97);}
-.hcard-bg{position:absolute;inset:0;transition:transform 0.5s;}
-.hcard:hover .hcard-bg,.hcard:active .hcard-bg{transform:scale(1.04);}
-.hcard-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(3,8,13,0.95) 0%,rgba(3,8,13,0.1) 55%);}
-.hcard-body{position:absolute;bottom:0;left:0;right:0;padding:16px;}
-.hcard-tag{font-family:'Space Mono',monospace;font-size:0.46rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal2);margin-bottom:4px;}
-.hcard-body h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:#fff;margin-bottom:4px;}
-.hcard-body p{font-size:0.72rem;font-weight:300;color:rgba(255,255,255,0.46);line-height:1.5;}
-.hcard-price{font-family:'Space Mono',monospace;font-size:0.5rem;color:#4ade80;margin-top:7px;letter-spacing:0.04em;}
+.hcard-bg{display:none;}
+.hcard-grad{display:none;}
+.hcard-emoji{font-size:2.4rem;line-height:1;margin-bottom:auto;}
+.hcard-body{margin-top:auto;}
+.hcard-tag{font-family:'Space Mono',monospace;font-size:0.44rem;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:6px;}
+.hcard-body h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:#fff;margin-bottom:5px;line-height:1.15;}
+.hcard-body p{font-size:0.72rem;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.5;}
+.hcard-price{font-family:'Space Mono',monospace;font-size:0.48rem;color:#4ade80;margin-top:8px;letter-spacing:0.04em;}
 /* swipe hint */
 .swipe-hint{font-family:'Space Mono',monospace;font-size:0.46rem;letter-spacing:0.1em;color:rgba(255,255,255,0.2);text-transform:uppercase;padding:8px 20px 0;display:flex;align-items:center;gap:6px;}
 .swipe-hint::before{content:'←';color:rgba(15,184,212,0.4);}
@@ -374,12 +380,12 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 
 /* EXP GRID */
 .exp-grid{display:flex;flex-direction:column;gap:9px;padding:0 20px;}
-.ec{border-radius:13px;overflow:hidden;position:relative;min-height:180px;display:flex;align-items:flex-end;opacity:0;transform:translateY(10px);transition:opacity 0.3s ease,transform 0.3s ease;}
+.ec{border-radius:13px;overflow:hidden;position:relative;min-height:200px;display:flex;flex-direction:column;justify-content:space-between;opacity:0;transform:translateY(10px);transition:opacity 0.3s ease,transform 0.3s ease;}
 .ec.vis{opacity:1;transform:translateY(0);}
-.ec-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.5s;}
-.ec:active .ec-bg{transform:scale(1.03);}
-.ec-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(3,8,13,0.94) 0%,rgba(3,8,13,0.06) 58%);}
-.ec-body{position:relative;z-index:1;padding:14px;}
+.ec:active{transform:scale(0.98);}
+.ec-bg{display:none;}
+.ec-ov{display:none;}
+.ec-body{padding:0 16px 16px;}
 .ec-lbl{font-family:'Space Mono',monospace;font-size:0.44rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal2);margin-bottom:3px;}
 .ec-body h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:#fff;margin-bottom:3px;}
 .ec-body p{font-size:0.72rem;font-weight:300;color:rgba(255,255,255,0.45);line-height:1.52;}
@@ -445,9 +451,9 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   font-family:'Cormorant Garamond',serif;
   font-size:1.6rem;font-weight:300;line-height:1;
   color:var(--teal2);
-  text-shadow:0 0 16px rgba(5,232,216,0.4);
+  text-shadow:0 0 16px rgba(5,232,216,0.5), 0 1px 8px rgba(3,8,13,0.95);
 }
-.st-l{font-family:'Space Mono',monospace;font-size:0.44rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;}
+.st-l{font-family:'Space Mono',monospace;font-size:0.44rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.55);margin-top:4px;text-shadow:0 1px 6px rgba(3,8,13,0.9);}
 .st-divider{width:1px;height:36px;background:rgba(255,255,255,0.1);flex-shrink:0;}
 .splash-pills{
   display:flex;gap:5px;flex-wrap:wrap;justify-content:center;
@@ -458,9 +464,10 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   font-family:'Space Mono',monospace;font-size:0.48rem;
   letter-spacing:0.07em;text-transform:uppercase;
   padding:4px 10px;
-  border:1px solid rgba(15,184,212,0.35);
-  border-radius:100px;color:var(--teal);
-  background:rgba(15,184,212,0.07);
+  border:1px solid rgba(15,184,212,0.5);
+  border-radius:100px;color:var(--teal2);
+  background:rgba(3,8,13,0.55);
+  backdrop-filter:blur(8px);
 }
 .sp.bd{border-color:rgba(255,92,62,0.35);color:#ff8066;background:rgba(255,92,62,0.07);}
 </style>
@@ -580,35 +587,29 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
     </div>
     <div class="hscroll-wrap">
       <div class="hscroll">
-        <div class="hcard">
-          <div class="hcard-bg" style="background:url('https://images.pexels.com/photos/2346015/pexels-photo-2346015.jpeg?auto=compress&cs=tinysrgb&w=1200') center/cover;"></div>
-          <div class="hcard-grad"></div>
-          <div class="hcard-body"><div class="hcard-tag">El Nido · Birthday</div><h3>Big Lagoon by Kayak</h3><p>Paddle inside 200m limestone walls into a hidden turquoise lagoon. No motorboats allowed inside.</p><div class="hcard-price">~$33pp · private boat</div></div>
+        <div class="hcard" style="background:linear-gradient(145deg,#0a3d52 0%,#030d18 100%);border:1px solid rgba(15,184,212,0.2);">
+          <div style="font-size:2.6rem;padding:18px 18px 0;">🌊</div>
+          <div class="hcard-body"><div class="hcard-tag" style="color:var(--teal2);">El Nido · Birthday · Tour A</div><h3>Big Lagoon by Kayak</h3><p>Paddle inside 200m limestone walls into a hidden turquoise lagoon. No motorboats — just kayaks.</p><div class="hcard-price">~$33pp · private boat · full day</div></div>
         </div>
-        <div class="hcard">
-          <div class="hcard-bg" style="background:url('https://images.pexels.com/photos/13769982/pexels-photo-13769982.jpeg?auto=compress&cs=tinysrgb&w=800') center/cover;"></div>
-          <div class="hcard-grad"></div>
-          <div class="hcard-body"><div class="hcard-tag">El Nido · Tour C</div><h3>Secret Beach</h3><p>Swim through a cave in a rock wall. Emerge into a completely hidden white-sand cove.</p><div class="hcard-price">Included · ~$35pp private</div></div>
+        <div class="hcard" style="background:linear-gradient(145deg,#0d3528 0%,#040f0a 100%);border:1px solid rgba(74,222,128,0.18);">
+          <div style="font-size:2.6rem;padding:18px 18px 0;">🏝️</div>
+          <div class="hcard-body"><div class="hcard-tag" style="color:#4ade80;">El Nido · Tour C</div><h3>Secret Beach</h3><p>Swim through a cave in a rock wall. Emerge into a completely hidden cove — no boats inside.</p><div class="hcard-price">Included · ~$35pp private</div></div>
         </div>
-        <div class="hcard">
-          <div class="hcard-bg" style="background:url('https://images.pexels.com/photos/13874296/pexels-photo-13874296.jpeg?auto=compress&cs=tinysrgb&w=600') center/cover;"></div>
-          <div class="hcard-grad"></div>
-          <div class="hcard-body"><div class="hcard-tag">El Nido · PADI DSD</div><h3>First Dive · Bacuit Reef</h3><p>No experience needed. Real reef dives on day two — sea turtles, giant clams, reef sharks.</p><div class="hcard-price">~$75pp · gear, guide, lunch all in</div></div>
+        <div class="hcard" style="background:linear-gradient(145deg,#0a2040 0%,#03080f 100%);border:1px solid rgba(96,165,250,0.18);">
+          <div style="font-size:2.6rem;padding:18px 18px 0;">🤿</div>
+          <div class="hcard-body"><div class="hcard-tag" style="color:#60a5fa;">El Nido · PADI DSD</div><h3>First Dive · Bacuit Reef</h3><p>No experience needed. Real reef dives day two — sea turtles, giant clams, reef sharks.</p><div class="hcard-price">~$75pp · gear, guide, lunch all in</div></div>
         </div>
-        <div class="hcard">
-          <div class="hcard-bg" style="background:url('https://images.pexels.com/photos/13874287/pexels-photo-13874287.jpeg?auto=compress&cs=tinysrgb&w=600') center/cover;"></div>
-          <div class="hcard-grad"></div>
-          <div class="hcard-body"><div class="hcard-tag">Coron · Ultimate Tour</div><h3>Kayangan Lake</h3><p>Rated Asia's cleanest lake. A limestone staircase hike opens onto crystal-clear mountain water.</p><div class="hcard-price">~$35pp · private boat</div></div>
+        <div class="hcard" style="background:linear-gradient(145deg,#0f3545 0%,#04101a 100%);border:1px solid rgba(15,184,212,0.22);">
+          <div style="font-size:2.6rem;padding:18px 18px 0;">💎</div>
+          <div class="hcard-body"><div class="hcard-tag" style="color:var(--teal2);">Coron · Ultimate Tour</div><h3>Kayangan Lake</h3><p>Rated Asia's cleanest lake. Limestone hike opens onto crystal-clear mountain water.</p><div class="hcard-price">~$35pp · private boat · all stops</div></div>
         </div>
-        <div class="hcard">
-          <div class="hcard-bg" style="background:url('https://images.pexels.com/photos/3046925/pexels-photo-3046925.jpeg?auto=compress&cs=tinysrgb&w=600') center/cover;"></div>
-          <div class="hcard-grad"></div>
-          <div class="hcard-body"><div class="hcard-tag">Coron · Mar 22</div><h3>🦒 Calauit Safari</h3><p>Real African giraffes and zebras roaming next to coconut palms on a tropical Philippine island.</p><div class="hcard-price">~$45pp all-in · guided</div></div>
+        <div class="hcard" style="background:linear-gradient(145deg,#2d1f08 0%,#0c0802 100%);border:1px solid rgba(251,191,36,0.18);">
+          <div style="font-size:2.6rem;padding:18px 18px 0;">🦒</div>
+          <div class="hcard-body"><div class="hcard-tag" style="color:#fbbf24;">Coron · Mar 22 · Calauit Island</div><h3>African Safari in the Philippines</h3><p>Real giraffes and zebras next to coconut palms. 3,700 hectares. Nothing makes sense.</p><div class="hcard-price">~$45pp all-in · guided</div></div>
         </div>
-        <div class="hcard">
-          <div class="hcard-bg" style="background:url('https://images.pexels.com/photos/22041235/pexels-photo-22041235.jpeg?auto=compress&cs=tinysrgb&w=600') center/cover;"></div>
-          <div class="hcard-grad"></div>
-          <div class="hcard-body"><div class="hcard-tag">Coron · Mar 21</div><h3>WWII Shipwreck Dives</h3><p>Okikawa Maru at 18m — 1944 Japanese cargo ship, now covered in coral. Top-10 wreck site on earth.</p><div class="hcard-price">~$90pp · 2 wrecks</div></div>
+        <div class="hcard" style="background:linear-gradient(145deg,#1a0f2e 0%,#060309 100%);border:1px solid rgba(167,139,250,0.18);">
+          <div style="font-size:2.6rem;padding:18px 18px 0;">⚓</div>
+          <div class="hcard-body"><div class="hcard-tag" style="color:#a78bfa;">Coron · Mar 21 · WWII</div><h3>Shipwreck Dives</h3><p>Okikawa Maru at 18m — Japanese ship, 1944. Top-10 wreck dive site on earth.</p><div class="hcard-price">~$90pp · 2 wrecks · full gear</div></div>
         </div>
       </div>
     </div>
@@ -771,12 +772,30 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
       <p class="s-body">Not a resort trip. Every day is something you'll talk about for years — most of it costs less than dinner out in LA.</p>
     </div>
     <div class="exp-grid">
-      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.pexels.com/photos/22041235/pexels-photo-22041235.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">El Nido · Tour A · Birthday</div><h3>Big Lagoon by Kayak</h3><p>Paddle inside 200m limestone walls. No motorboats allowed — just kayaks and silence.</p><div class="ec-price">~$33pp · private boat · full day</div></div></div>
-      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.pexels.com/photos/3046925/pexels-photo-3046925.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">El Nido · Tour C</div><h3>Secret Beach</h3><p>Swim through a cave in a rock wall. Emerge into a completely hidden white-sand cove.</p><div class="ec-price">Included in Tour C · ~$35pp private</div></div></div>
-      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.pexels.com/photos/1068049/pexels-photo-1068049.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">El Nido · PADI Discover Scuba</div><h3>First Dive · Bacuit Reef</h3><p>No experience needed. Real reef dives — turtles, giant clams, sharks. All gear included.</p><div class="ec-price">~$75pp · gear, guide, boat, lunch all in</div></div></div>
-      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.pexels.com/photos/13518466/pexels-photo-13518466.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">Coron · Ultimate Tour</div><h3>Kayangan Lake</h3><p>Asia's cleanest lake. Limestone staircase hike opens onto crystal-clear mountain water.</p><div class="ec-price">~$35pp · private boat · all stops</div></div></div>
-      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.pexels.com/photos/13874296/pexels-photo-13874296.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">Coron · Mar 22</div><h3>🦒 Calauit Safari</h3><p>Real African giraffes and zebras on a tropical Philippine island. The most surreal day of the trip.</p><div class="ec-price">~$45pp all-in · transport, guide, lunch</div></div></div>
-      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.pexels.com/photos/13874287/pexels-photo-13874287.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">Coron · Mar 21</div><h3>WWII Shipwreck Dives</h3><p>Okikawa Maru at 18m — 1944 Japanese cargo ship. Top-10 wreck dive destination on earth.</p><div class="ec-price">~$90pp · 2 wrecks · full gear</div></div></div>
+      <div class="ec" style="background:linear-gradient(160deg,#0a3d52,#030d18);border:1px solid rgba(15,184,212,0.2);">
+        <div style="font-size:2.8rem;padding:20px 16px 0;">🌊</div>
+        <div class="ec-body"><div class="ec-lbl" style="color:var(--teal2);">El Nido · Tour A · Birthday</div><h3>Big Lagoon by Kayak</h3><p>Paddle inside 200m limestone walls to a hidden turquoise lagoon. No motorboats allowed inside — just kayaks and silence.</p><div class="ec-price">~$33pp · private boat · full day</div></div>
+      </div>
+      <div class="ec" style="background:linear-gradient(160deg,#0d3528,#040f0a);border:1px solid rgba(74,222,128,0.18);">
+        <div style="font-size:2.8rem;padding:20px 16px 0;">🏝️</div>
+        <div class="ec-body"><div class="ec-lbl" style="color:#4ade80;">El Nido · Tour C</div><h3>Secret Beach</h3><p>Swim through a cave in a rock wall. Emerge into a completely hidden white-sand cove — no boats, no way in except through the rock.</p><div class="ec-price">Included in Tour C · ~$35pp private</div></div>
+      </div>
+      <div class="ec" style="background:linear-gradient(160deg,#0a2040,#03080f);border:1px solid rgba(96,165,250,0.18);">
+        <div style="font-size:2.8rem;padding:20px 16px 0;">🤿</div>
+        <div class="ec-body"><div class="ec-lbl" style="color:#60a5fa;">El Nido · PADI Discover Scuba</div><h3>First Dive · Bacuit Reef</h3><p>No experience needed. Briefing, shallow practice, then real reef dives — sea turtles, giant clams, reef sharks. All gear included.</p><div class="ec-price">~$75pp · gear, guide, boat, lunch all in</div></div>
+      </div>
+      <div class="ec" style="background:linear-gradient(160deg,#0f3545,#04101a);border:1px solid rgba(15,184,212,0.22);">
+        <div style="font-size:2.8rem;padding:20px 16px 0;">💎</div>
+        <div class="ec-body"><div class="ec-lbl" style="color:var(--teal2);">Coron · Ultimate Tour</div><h3>Kayangan Lake</h3><p>Rated Asia's cleanest lake. A limestone staircase hike opens onto crystal-clear mountain water surrounded by jungle cliffs.</p><div class="ec-price">~$35pp · private boat · all stops included</div></div>
+      </div>
+      <div class="ec" style="background:linear-gradient(160deg,#2d1f08,#0c0802);border:1px solid rgba(251,191,36,0.18);">
+        <div style="font-size:2.8rem;padding:20px 16px 0;">🦒</div>
+        <div class="ec-body"><div class="ec-lbl" style="color:#fbbf24;">Coron · Mar 22 · Calauit Island</div><h3>African Safari in the Philippines</h3><p>Real giraffes and zebras roaming next to coconut palms on a tropical island. 3,700 hectares. Nothing about it makes sense. That's the point.</p><div class="ec-price">~$45pp all-in · transport, guide, lunch</div></div>
+      </div>
+      <div class="ec" style="background:linear-gradient(160deg,#1a0f2e,#060309);border:1px solid rgba(167,139,250,0.18);">
+        <div style="font-size:2.8rem;padding:20px 16px 0;">⚓</div>
+        <div class="ec-body"><div class="ec-lbl" style="color:#a78bfa;">Coron · Mar 21 · WWII</div><h3>Shipwreck Dives</h3><p>Okikawa Maru at 18m — Japanese cargo ship sunk in 1944, now covered in coral. Top-10 wreck dive site on earth.</p><div class="ec-price">~$90pp · 2 wrecks · full gear</div></div>
+      </div>
     </div>
     <div class="photo-strip">
       <div class="ps"><img src="https://images.pexels.com/photos/3046925/pexels-photo-3046925.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Sunset"><div class="ps-lbl">Palawan Sunset</div></div>
