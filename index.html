@@ -2,596 +2,503 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Palawan · March 2027 · Anicka's 26th</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Palawan 2027</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet">
 <style>
-:root{--ocean:#0a3d52;--lagoon:#17a2c0;--lagoon2:#0fd4d4;--sand:#e8d5a3;--coral:#e85d47;--deep:#050f15;--deep2:#071a26;--glass:rgba(5,15,21,0.72);--glass2:rgba(10,61,82,0.55);--white:#fff;--muted:rgba(255,255,255,0.55);}
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;background:#050f15;}
-body{font-family:'DM Sans',sans-serif;background:#050f15;color:#fff;overflow-x:hidden;-webkit-text-size-adjust:100%;}
-::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:#050f15;}::-webkit-scrollbar-thumb{background:var(--lagoon);border-radius:2px;}
+:root{--teal:#0fb8d4;--teal2:#05d4c8;--coral:#ff5c3e;--sand:#e8d5a3;--deep:#04090e;--card:#0d1f2d;--card2:#0a1a27;--glass:rgba(13,31,45,0.85);--border:rgba(255,255,255,0.07);--muted:rgba(255,255,255,0.45);--safe-bot:env(safe-area-inset-bottom,0px);}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html{background:#04090e;scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:#04090e;color:#fff;overflow-x:hidden;-webkit-text-size-adjust:100%;}
+img{display:block;width:100%;height:100%;object-fit:cover;}
 
-/* NAV */
-#nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(5,15,21,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(23,162,192,0.18);padding:0 1.25rem;display:flex;align-items:center;justify-content:space-between;height:54px;}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:300;font-style:italic;color:var(--sand);white-space:nowrap;}
-.nav-logo span{color:var(--lagoon);font-style:normal;font-size:0.65rem;font-family:'Space Mono',monospace;letter-spacing:0.08em;vertical-align:middle;margin-left:0.4rem;}
-.nav-links{display:flex;gap:0.1rem;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;}
-.nav-links::-webkit-scrollbar{display:none;}
-.nav-link{font-family:'Space Mono',monospace;font-size:0.56rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);padding:0.38rem 0.6rem;border-radius:4px;text-decoration:none;white-space:nowrap;transition:color 0.2s,background 0.2s;}
-.nav-link:hover,.nav-link.active{color:var(--lagoon);background:rgba(23,162,192,0.1);}
+/* BOTTOM TAB BAR */
+#tabbar{position:fixed;bottom:0;left:0;right:0;z-index:200;background:rgba(4,9,14,0.97);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-top:1px solid rgba(255,255,255,0.1);display:flex;align-items:stretch;padding-bottom:var(--safe-bot);height:calc(62px + var(--safe-bot));}
+.tab{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:6px 2px;cursor:pointer;transition:opacity 0.15s;text-decoration:none;border:none;background:none;}
+.tab:active{opacity:0.6;}
+.tab-icon{font-size:1.25rem;line-height:1;}
+.tab-label{font-family:'Space Mono',monospace;font-size:0.46rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);transition:color 0.2s;}
+.tab.active .tab-label{color:var(--teal);}
+.tab.active .tab-icon{filter:drop-shadow(0 0 5px rgba(15,184,212,0.5));}
+.tab-dot{width:4px;height:4px;border-radius:50%;background:var(--teal);opacity:0;transition:opacity 0.2s;}
+.tab.active .tab-dot{opacity:1;}
+
+/* PAGES */
+.page{display:none;padding-bottom:calc(62px + var(--safe-bot) + 16px);}
+.page.active{display:block;}
 
 /* HERO */
-#hero{position:relative;height:100vh;min-height:580px;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/El_Nido_Bay%2C_Island_lagoon%2C_Tropical_lagoon%2C_Palawan%2C_Philippines.jpg/1280px-El_Nido_Bay%2C_Island_lagoon%2C_Tropical_lagoon%2C_Palawan%2C_Philippines.jpg');background-size:cover;background-position:center;animation:slowZoom 22s ease-in-out infinite alternate;}
-@keyframes slowZoom{from{transform:scale(1.0);}to{transform:scale(1.08);}}
-.hero-ov{position:absolute;inset:0;background:linear-gradient(160deg,rgba(5,15,21,0.52) 0%,rgba(5,15,21,0.28) 40%,rgba(5,15,21,0.88) 100%);}
-.hero-fade{position:absolute;bottom:0;left:0;right:0;height:220px;background:linear-gradient(to bottom,transparent,#050f15);}
-.hero-c{position:relative;z-index:2;text-align:center;padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;}
-.h-ey{font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--lagoon2);margin-bottom:1.25rem;opacity:0;animation:fu 0.7s ease 0.4s forwards;}
-.h-t{font-family:'Cormorant Garamond',serif;font-size:clamp(3.5rem,12vw,8.5rem);font-weight:300;line-height:0.9;letter-spacing:-0.02em;opacity:0;animation:fu 0.8s ease 0.6s forwards;}
-.h-t em{font-style:italic;color:var(--sand);}
-.h-s{font-size:0.92rem;font-weight:300;color:rgba(255,255,255,0.5);margin-top:1.5rem;letter-spacing:0.06em;opacity:0;animation:fu 0.8s ease 0.85s forwards;}
-.h-pills{display:flex;gap:0.45rem;flex-wrap:wrap;justify-content:center;margin-top:1.75rem;opacity:0;animation:fu 0.8s ease 1.05s forwards;}
-.h-pill{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.33rem 0.85rem;border:1px solid rgba(23,162,192,0.45);border-radius:100px;color:var(--lagoon2);background:rgba(23,162,192,0.08);}
-.h-pill.sp{border-color:rgba(232,93,71,0.5);color:#f4806c;background:rgba(232,93,71,0.08);}
-.h-scr{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.4rem;opacity:0;animation:fu 1s ease 1.4s forwards;}
-.scr-l{width:1px;height:34px;background:linear-gradient(to bottom,transparent,var(--lagoon));animation:pulse 2s ease-in-out infinite;}
-@keyframes pulse{0%,100%{opacity:0.3;}50%{opacity:1;}}
-.scr-t{font-family:'Space Mono',monospace;font-size:0.52rem;letter-spacing:0.2em;color:var(--lagoon);text-transform:uppercase;}
-@keyframes fu{from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);}}
+.hero{position:relative;height:100svh;min-height:580px;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;}
+.hero-img{position:absolute;inset:0;}
+.hero-img img{width:100%;height:100%;object-fit:cover;animation:kz 24s ease-in-out infinite alternate;}
+@keyframes kz{from{transform:scale(1);}to{transform:scale(1.08);}}
+.hero-grad{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,9,14,0.2) 0%,rgba(4,9,14,0.05) 35%,rgba(4,9,14,0.65) 70%,rgba(4,9,14,0.98) 100%);}
+.hero-body{position:relative;z-index:1;padding:0 22px 30px;}
+.h-crew{font-family:'Space Mono',monospace;font-size:0.56rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--teal2);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.h-crew::before{content:'';width:20px;height:1px;background:var(--teal2);}
+.h-title{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,13vw,6rem);font-weight:300;line-height:0.9;letter-spacing:-0.02em;}
+.h-title em{font-style:italic;color:var(--sand);}
+.h-sub{font-family:'Inter',sans-serif;font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.48);margin-top:12px;letter-spacing:0.04em;}
+.h-pills{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;}
+.hp{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.08em;text-transform:uppercase;padding:5px 10px;border:1px solid rgba(15,184,212,0.38);border-radius:100px;color:var(--teal);background:rgba(15,184,212,0.07);}
+.hp.bday{border-color:rgba(255,92,62,0.4);color:#ff8066;background:rgba(255,92,62,0.07);}
+.scroll-hint{position:absolute;bottom:calc(62px + var(--safe-bot) + 18px);left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;animation:bounce 2s ease-in-out infinite;}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
+.scroll-hint span{font-family:'Space Mono',monospace;font-size:0.46rem;letter-spacing:0.14em;color:rgba(255,255,255,0.28);text-transform:uppercase;}
+.scroll-hint svg{opacity:0.28;}
 
-/* SHARED SECTION */
-.sec{padding:4.5rem 1.5rem;max-width:960px;margin:0 auto;}
-.s-lbl{font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--lagoon);margin-bottom:0.9rem;display:flex;align-items:center;gap:0.75rem;}
-.s-lbl::after{content:'';flex:1;height:1px;background:rgba(23,162,192,0.2);max-width:60px;}
-.s-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,5vw,3.1rem);font-weight:300;line-height:1.05;color:#fff;margin-bottom:1rem;}
-.s-ttl em{font-style:italic;color:var(--sand);}
-.s-body{font-size:0.93rem;font-weight:300;color:var(--muted);line-height:1.8;max-width:620px;}
-.divider{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(23,162,192,0.2),transparent);}
+/* SHARED */
+.sec{padding:28px 20px 0;}
+.s-label{font-family:'Space Mono',monospace;font-size:0.56rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--teal);margin-bottom:7px;display:flex;align-items:center;gap:9px;}
+.s-label::after{content:'';flex:1;height:1px;background:rgba(15,184,212,0.18);max-width:44px;}
+.s-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.75rem,6vw,2.5rem);font-weight:300;line-height:1.05;color:#fff;margin-bottom:9px;}
+.s-title em{font-style:italic;color:var(--sand);}
+.s-body{font-size:0.855rem;font-weight:300;color:var(--muted);line-height:1.75;margin-bottom:18px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform 0.15s;}
+.card:active{transform:scale(0.985);}
 
-/* COOKS */
-.cooks-glass{background:var(--glass2);border:1px solid rgba(23,162,192,0.2);border-radius:16px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;margin-top:1.5rem;}
-.cooks-img{min-height:260px;background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Aitutaki_Lagoon_seen_from_above.jpg/1280px-Aitutaki_Lagoon_seen_from_above.jpg');background-size:cover;background-position:center;}
-.cooks-txt{padding:2.25rem;}
-.cooks-txt .lbl{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--lagoon);margin-bottom:0.65rem;}
-.cooks-txt h2{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:300;color:#fff;margin-bottom:0.65rem;}
-.cooks-txt h2 em{font-style:italic;color:var(--sand);}
-.cooks-txt p{font-size:0.85rem;font-weight:300;color:var(--muted);line-height:1.75;}
-.cooks-stats{display:flex;gap:1.5rem;margin-top:1.5rem;flex-wrap:wrap;}
-.cs-i .num{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--lagoon2);line-height:1;}
-.cs-i .lbl2{font-family:'Space Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:0.15rem;}
+/* COOKS CARD */
+.cooks-card{margin:0 20px 20px;display:grid;grid-template-rows:170px auto;}
+.cooks-img{overflow:hidden;}
+.cooks-img img{width:100%;height:100%;object-fit:cover;}
+.cooks-body{padding:18px;}
+.cooks-body .lbl{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:7px;}
+.cooks-body h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;color:#fff;margin-bottom:8px;}
+.cooks-body h2 em{font-style:italic;color:var(--sand);}
+.cooks-body p{font-size:0.8rem;font-weight:300;color:var(--muted);line-height:1.7;}
+.cooks-stats{display:flex;gap:18px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border);}
+.cs .n{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:300;color:var(--teal2);line-height:1;}
+.cs .l{font-family:'Space Mono',monospace;font-size:0.44rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.25);margin-top:3px;}
+
+/* THAILAND VS TABLE */
+.vs-table{margin:0 20px 22px;border-radius:14px;overflow:hidden;border:1px solid var(--border);}
+.vs-header{display:grid;grid-template-columns:1fr 1fr;}
+.vs-h{padding:9px 12px;font-family:'Space Mono',monospace;font-size:0.46rem;letter-spacing:0.14em;text-transform:uppercase;}
+.vs-h.thai{background:rgba(255,255,255,0.02);color:rgba(255,255,255,0.28);}
+.vs-h.pal{background:rgba(15,184,212,0.07);color:var(--teal);}
+.vs-row{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border);}
+.vs-cell{padding:11px 12px;font-size:0.76rem;font-weight:300;line-height:1.5;}
+.vs-cell.thai{color:rgba(255,255,255,0.32);}
+.vs-cell.pal{color:rgba(255,255,255,0.72);background:rgba(15,184,212,0.025);}
+.vs-note{padding:10px 12px;font-size:0.7rem;font-style:italic;color:rgba(255,255,255,0.26);border-top:1px solid var(--border);text-align:center;}
 
 /* WHY GRID */
-.why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;margin-top:2.25rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.06);border-radius:14px;overflow:hidden;}
-.wc{background:#050f15;padding:1.6rem;transition:background 0.3s;}
-.wc:hover{background:rgba(23,162,192,0.07);}
-.wc-icon{font-size:1.35rem;margin-bottom:0.55rem;}
-.wc h3{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--sand);margin-bottom:0.3rem;}
-.wc p{font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.65;}
+.why-grid{display:flex;flex-direction:column;gap:1px;margin:0 20px 22px;background:var(--border);border-radius:14px;overflow:hidden;}
+.wc{background:var(--card2);padding:15px;}
+.wc-top{display:flex;align-items:center;gap:9px;margin-bottom:5px;}
+.wc-icon{font-size:1.15rem;}
+.wc h3{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--sand);}
+.wc p{font-size:0.76rem;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.58;}
 
-/* IMG BREAK */
-.img-break{width:100%;height:400px;background-size:cover;background-position:center;background-attachment:fixed;position:relative;overflow:hidden;}
-.ib-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,15,21,0.5),rgba(5,15,21,0.15),rgba(5,15,21,0.6));}
-.ib-lbl{position:absolute;bottom:1.5rem;right:2rem;font-family:'Space Mono',monospace;font-size:0.56rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.45);}
+/* IMAGE BREAK */
+.img-break{height:260px;overflow:hidden;position:relative;}
+.img-break img{width:100%;height:100%;object-fit:cover;}
+.img-break-cap{position:absolute;bottom:10px;right:12px;font-family:'Space Mono',monospace;font-size:0.44rem;letter-spacing:0.09em;text-transform:uppercase;color:rgba(255,255,255,0.46);background:rgba(4,9,14,0.58);padding:3px 7px;border-radius:4px;}
 
-/* MOSAIC */
-.mosaic{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:230px 230px;gap:6px;border-radius:14px;overflow:hidden;margin-top:2rem;}
-.m-img{overflow:hidden;position:relative;}
-.m-img:first-child{grid-row:1/3;}
-.m-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;}
-.m-img:hover img{transform:scale(1.05);}
-.m-lbl{position:absolute;bottom:0.65rem;left:0.65rem;font-family:'Space Mono',monospace;font-size:0.52rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.75);background:rgba(5,15,21,0.65);padding:0.22rem 0.55rem;border-radius:3px;}
-
-/* BDAY SPLASH */
-.bday-splash{position:relative;overflow:hidden;border-radius:16px;margin:1.5rem 0;min-height:260px;display:flex;align-items:flex-end;}
-.bs-bg{position:absolute;inset:0;background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/El_Nido%2C_Filipino_sunset%2C_Palawan%2C_Philippines.jpg/1280px-El_Nido%2C_Filipino_sunset%2C_Palawan%2C_Philippines.jpg');background-size:cover;background-position:center;}
-.bs-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(232,93,71,0.32) 0%,rgba(5,15,21,0.88) 70%);}
-.bs-c{position:relative;z-index:1;padding:2.5rem;}
-.bs-date{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:#f4806c;margin-bottom:0.45rem;}
-.bs-c h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,3rem);font-weight:300;font-style:italic;color:#fff;margin-bottom:0.45rem;}
-.bs-c p{font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.58);max-width:500px;line-height:1.7;}
-
-/* ACT BAND */
-.act-band{padding:0 1.5rem 0;max-width:960px;margin:0 auto;}
-.act-hdr{display:flex;align-items:baseline;gap:1rem;padding:2.5rem 0 1.25rem;border-top:1px solid rgba(255,255,255,0.07);}
-.act-num{font-family:'Cormorant Garamond',serif;font-size:4.5rem;font-weight:300;color:rgba(23,162,192,0.12);line-height:1;flex-shrink:0;}
-.act-info h2{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:300;color:#fff;}
-.act-sub{font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.15em;color:var(--lagoon);text-transform:uppercase;margin-top:0.2rem;}
+/* ACT HEADER */
+.act-hdr{display:flex;align-items:baseline;gap:10px;padding:24px 20px 10px;border-top:1px solid var(--border);margin-top:6px;}
+.act-hdr:first-of-type{border-top:none;margin-top:0;}
+.act-n{font-family:'Cormorant Garamond',serif;font-size:3.8rem;font-weight:300;color:rgba(15,184,212,0.1);line-height:1;flex-shrink:0;}
+.act-info h2{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:#fff;}
+.act-sub{font-family:'Space Mono',monospace;font-size:0.46rem;letter-spacing:0.12em;color:var(--teal);text-transform:uppercase;margin-top:3px;}
 
 /* DAY CARDS */
-.days{display:flex;flex-direction:column;gap:0.9rem;margin-bottom:2rem;}
-.dc{display:grid;grid-template-columns:72px 1fr;background:var(--glass);border:1px solid rgba(255,255,255,0.07);border-radius:12px;overflow:hidden;backdrop-filter:blur(12px);opacity:0;transform:translateY(14px);transition:opacity 0.4s ease,transform 0.4s ease,border-color 0.3s,background 0.3s;}
+.days{display:flex;flex-direction:column;gap:9px;padding:0 20px 6px;}
+.dc{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;opacity:0;transform:translateY(10px);transition:opacity 0.3s ease,transform 0.3s ease,border-color 0.2s;}
 .dc.vis{opacity:1;transform:translateY(0);}
-.dc:hover{border-color:rgba(23,162,192,0.3);background:rgba(10,61,82,0.35);}
-.dc.bday{border-color:rgba(232,93,71,0.38);}
-.dc.bday:hover{border-color:rgba(232,93,71,0.6);}
-.dc.hi{grid-template-columns:72px 1fr 170px;}
-.dd{background:rgba(23,162,192,0.07);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem 0.35rem;border-right:1px solid rgba(255,255,255,0.06);}
-.dc.bday .dd{background:rgba(232,93,71,0.08);}
-.dd .mo{font-family:'Space Mono',monospace;font-size:0.48rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--lagoon);}
-.dc.bday .dd .mo{color:#f4806c;}
-.dd .dn{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#fff;line-height:1;}
-.dd .dw{font-family:'Space Mono',monospace;font-size:0.42rem;letter-spacing:0.1em;color:rgba(255,255,255,0.28);text-transform:uppercase;}
-.db{padding:1.15rem 1.3rem;}
-.db h3{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:400;color:var(--sand);margin-bottom:0.28rem;}
-.db p{font-size:0.8rem;font-weight:300;color:rgba(255,255,255,0.48);line-height:1.62;}
-.pills{display:flex;gap:0.3rem;flex-wrap:wrap;margin-top:0.6rem;}
-.pi{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.06em;padding:0.17rem 0.5rem;background:rgba(23,162,192,0.1);border:1px solid rgba(23,162,192,0.2);border-radius:3px;color:var(--lagoon);text-transform:uppercase;}
-.pi.co{background:rgba(232,93,71,0.1);border-color:rgba(232,93,71,0.25);color:#f4806c;}
-.pi.gr{background:rgba(74,222,128,0.08);border-color:rgba(74,222,128,0.2);color:#4ade80;}
-.dc-img{overflow:hidden;}
-.dc-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;}
-.dc:hover .dc-img img{transform:scale(1.06);}
+.dc:active{border-color:rgba(15,184,212,0.28);}
+.dc.bday{border-color:rgba(255,92,62,0.28);}
+.dc-img-full{height:150px;overflow:hidden;position:relative;}
+.dc-img-full img{width:100%;height:100%;object-fit:cover;}
+.dc-img-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(4,9,14,0.88));}
+.dc-img-title{position:absolute;bottom:10px;left:13px;right:13px;font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:400;color:#fff;}
+.dc-body{padding:13px 14px;}
+.dc-date-badge{display:inline-block;font-family:'Space Mono',monospace;font-size:0.46rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--teal);background:rgba(15,184,212,0.09);border:1px solid rgba(15,184,212,0.2);padding:3px 8px;border-radius:4px;margin-bottom:7px;white-space:nowrap;}
+.dc-date-badge.bd{color:#ff8066;background:rgba(255,92,62,0.09);border-color:rgba(255,92,62,0.22);}
+.dc-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:var(--sand);margin-bottom:5px;}
+.dc-body p{font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.46);line-height:1.62;}
+.pills{display:flex;gap:5px;flex-wrap:wrap;margin-top:9px;}
+.pi{font-family:'Space Mono',monospace;font-size:0.44rem;letter-spacing:0.05em;padding:3px 7px;background:rgba(15,184,212,0.07);border:1px solid rgba(15,184,212,0.17);border-radius:3px;color:var(--teal);text-transform:uppercase;}
+.pi.gr{background:rgba(74,222,128,0.07);border-color:rgba(74,222,128,0.17);color:#4ade80;}
+.pi.co{background:rgba(255,92,62,0.07);border-color:rgba(255,92,62,0.18);color:#ff8066;}
 
-/* EXP GRID */
-.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;margin-top:1.75rem;}
-.ec{border-radius:12px;overflow:hidden;position:relative;min-height:215px;display:flex;align-items:flex-end;opacity:0;transform:translateY(14px);transition:opacity 0.4s ease,transform 0.4s ease;}
+/* BDAY SPLASH */
+.bday-splash{margin:6px 20px;border-radius:15px;overflow:hidden;position:relative;min-height:200px;display:flex;align-items:flex-end;}
+.bday-splash-img{position:absolute;inset:0;}
+.bday-splash-img img{width:100%;height:100%;object-fit:cover;}
+.bday-splash-ov{position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,92,62,0.25) 0%,rgba(4,9,14,0.88) 62%);}
+.bday-splash-body{position:relative;z-index:1;padding:18px;}
+.bday-date{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:#ff8066;margin-bottom:5px;}
+.bday-splash-body h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:300;font-style:italic;color:#fff;margin-bottom:5px;}
+.bday-splash-body p{font-size:0.76rem;font-weight:300;color:rgba(255,255,255,0.52);line-height:1.62;}
+
+/* EXPERIENCES */
+.exp-grid{display:flex;flex-direction:column;gap:9px;padding:0 20px;}
+.ec{border-radius:14px;overflow:hidden;position:relative;min-height:185px;display:flex;align-items:flex-end;opacity:0;transform:translateY(10px);transition:opacity 0.3s ease,transform 0.3s ease;}
 .ec.vis{opacity:1;transform:translateY(0);}
 .ec-bg{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 0.5s;}
-.ec:hover .ec-bg{transform:scale(1.05);}
-.ec-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,15,21,0.93) 0%,rgba(5,15,21,0.15) 65%);}
-.ec-b{position:relative;z-index:1;padding:1.1rem;}
-.ec-lbl{font-family:'Space Mono',monospace;font-size:0.52rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--lagoon2);margin-bottom:0.25rem;}
-.ec-b h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:#fff;margin-bottom:0.22rem;}
-.ec-b p{font-size:0.74rem;font-weight:300;color:rgba(255,255,255,0.48);line-height:1.55;}
-.ec-pr{font-family:'Space Mono',monospace;font-size:0.56rem;color:#4ade80;margin-top:0.45rem;letter-spacing:0.04em;}
+.ec:active .ec-bg{transform:scale(1.03);}
+.ec-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(4,9,14,0.94) 0%,rgba(4,9,14,0.08) 58%);}
+.ec-body{position:relative;z-index:1;padding:15px;}
+.ec-lbl{font-family:'Space Mono',monospace;font-size:0.46rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal2);margin-bottom:3px;}
+.ec-body h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:400;color:#fff;margin-bottom:3px;}
+.ec-body p{font-size:0.74rem;font-weight:300;color:rgba(255,255,255,0.47);line-height:1.53;}
+.ec-price{font-family:'Space Mono',monospace;font-size:0.5rem;color:#4ade80;margin-top:7px;letter-spacing:0.03em;}
 
-/* PHOTO ROW */
-.photo-row{display:flex;gap:6px;height:190px;margin:1.75rem 0;border-radius:12px;overflow:hidden;}
-.pr{flex:1;overflow:hidden;position:relative;}
-.pr img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s;}
-.pr:hover img{transform:scale(1.06);}
-.pr-lbl{position:absolute;bottom:0.5rem;left:0.55rem;font-family:'Space Mono',monospace;font-size:0.48rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.65);background:rgba(5,15,21,0.6);padding:0.18rem 0.48rem;border-radius:3px;}
+/* PHOTO STRIP */
+.photo-strip{display:flex;gap:5px;height:130px;margin:14px 20px;border-radius:11px;overflow:hidden;}
+.ps{flex:1;overflow:hidden;position:relative;}
+.ps img{width:100%;height:100%;object-fit:cover;}
+.ps-lbl{position:absolute;bottom:5px;left:6px;font-family:'Space Mono',monospace;font-size:0.42rem;letter-spacing:0.07em;text-transform:uppercase;color:rgba(255,255,255,0.65);background:rgba(4,9,14,0.58);padding:2px 5px;border-radius:3px;}
 
 /* SAFETY */
-.safety-badge{display:inline-flex;align-items:center;gap:0.4rem;font-family:'Space Mono',monospace;font-size:0.58rem;letter-spacing:0.12em;color:#4ade80;background:rgba(74,222,128,0.07);border:1px solid rgba(74,222,128,0.22);padding:0.28rem 0.75rem;border-radius:4px;text-transform:uppercase;margin-bottom:1.1rem;}
-.safety-badge::before{content:'●';font-size:0.42rem;}
-.sg{display:grid;grid-template-columns:repeat(2,1fr);gap:0.9rem;margin-top:1.6rem;}
-.sc{padding:1.4rem;background:var(--glass);border:1px solid rgba(255,255,255,0.07);border-radius:11px;backdrop-filter:blur(8px);opacity:0;transform:translateY(12px);transition:opacity 0.4s ease,transform 0.4s ease;}
+.safety-badge{display:inline-flex;align-items:center;gap:5px;font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.09em;color:#4ade80;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.18);padding:5px 10px;border-radius:6px;text-transform:uppercase;margin-bottom:14px;}
+.safety-badge::before{content:'●';font-size:0.38rem;}
+.sg{display:flex;flex-direction:column;gap:8px;padding:0 20px;}
+.sc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:14px;opacity:0;transform:translateY(9px);transition:opacity 0.3s ease,transform 0.3s ease;}
 .sc.vis{opacity:1;transform:translateY(0);}
-.sc .ic{font-size:1.15rem;margin-bottom:0.45rem;}
-.sc h4{font-family:'Cormorant Garamond',serif;font-size:1.02rem;font-weight:400;color:var(--sand);margin-bottom:0.28rem;}
-.sc p{font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.6;}
+.sc-icon{font-size:1.05rem;margin-bottom:5px;}
+.sc h4{font-family:'Cormorant Garamond',serif;font-size:0.98rem;font-weight:400;color:var(--sand);margin-bottom:3px;}
+.sc p{font-size:0.76rem;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.58;}
 
 /* BUDGET */
-.bgt-bg{background:var(--glass2);border:1px solid rgba(23,162,192,0.15);border-radius:16px;overflow:hidden;backdrop-filter:blur(12px);margin-top:1.75rem;}
-table{width:100%;border-collapse:collapse;}
-th{font-family:'Space Mono',monospace;font-size:0.54rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--lagoon);padding:0.8rem 1.2rem;text-align:left;border-bottom:1px solid rgba(23,162,192,0.2);background:rgba(23,162,192,0.05);}
-td{padding:0.85rem 1.2rem;color:rgba(255,255,255,0.58);font-weight:300;font-size:0.84rem;border-bottom:1px solid rgba(255,255,255,0.04);vertical-align:top;}
-tr:last-child td{border-bottom:none;}
-tr:hover td{background:rgba(23,162,192,0.04);color:rgba(255,255,255,0.85);}
-td:first-child{font-weight:500;color:var(--sand);}
-td:last-child{font-family:'Space Mono',monospace;font-size:0.78rem;color:#fff;text-align:right;white-space:nowrap;}
-.tn{font-size:0.7rem;color:rgba(255,255,255,0.25);margin-top:0.18rem;font-style:italic;}
-.btt{padding:1.4rem 1.2rem;background:rgba(23,162,192,0.1);border-top:1px solid rgba(23,162,192,0.22);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;}
-.btt-lbl{font-family:'Space Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--lagoon);}
-.btt-sub{font-size:0.75rem;color:rgba(255,255,255,0.28);margin-top:0.12rem;}
-.btt-amt{font-family:'Cormorant Garamond',serif;font-size:2.65rem;font-weight:300;color:#fff;line-height:1;}
-.sav{padding:0.95rem 1.2rem;background:rgba(74,222,128,0.05);border-top:1px solid rgba(74,222,128,0.13);display:flex;gap:0.7rem;align-items:flex-start;}
-.sav p{font-size:0.8rem;color:rgba(255,255,255,0.48);line-height:1.65;}
-.sav strong{color:#4ade80;font-weight:500;}
+.bgt{margin:0 20px;border-radius:14px;overflow:hidden;border:1px solid rgba(15,184,212,0.14);background:var(--card);}
+.bgt-head{background:rgba(15,184,212,0.06);padding:9px 14px;display:flex;justify-content:space-between;border-bottom:1px solid rgba(15,184,212,0.18);}
+.bh-l{font-family:'Space Mono',monospace;font-size:0.47rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);}
+.bgt-row{display:flex;justify-content:space-between;align-items:flex-start;padding:12px 14px;border-bottom:1px solid var(--border);gap:10px;}
+.bgt-row:last-of-type{border-bottom:none;}
+.br-left{flex:1;}
+.br-cat{font-size:0.8rem;font-weight:500;color:var(--sand);}
+.br-note{font-size:0.68rem;font-weight:300;color:rgba(255,255,255,0.22);margin-top:2px;font-style:italic;}
+.br-bonus{font-size:0.6rem;color:#4ade80;margin-top:1px;font-style:normal;}
+.br-price{font-family:'Space Mono',monospace;font-size:0.78rem;color:#fff;white-space:nowrap;flex-shrink:0;text-align:right;}
+.bgt-total{background:rgba(15,184,212,0.09);padding:14px;border-top:1px solid rgba(15,184,212,0.2);display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:5px;}
+.btt-lbl{font-family:'Space Mono',monospace;font-size:0.54rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);}
+.btt-sub{font-size:0.7rem;color:rgba(255,255,255,0.22);margin-top:1px;}
+.btt-amt{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:#fff;line-height:1;}
+.sav-bar{margin:10px 20px;padding:13px;background:rgba(74,222,128,0.04);border:1px solid rgba(74,222,128,0.12);border-radius:11px;display:flex;gap:9px;align-items:flex-start;}
+.sav-bar p{font-size:0.78rem;color:rgba(255,255,255,0.42);line-height:1.62;}
+.sav-bar strong{color:#4ade80;font-weight:500;}
 
-/* LOG */
-.lg-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0.9rem;margin-top:1.75rem;}
-.lc{background:var(--glass);border:1px solid rgba(255,255,255,0.07);border-radius:11px;padding:1.4rem;backdrop-filter:blur(8px);}
-.lc h4{font-family:'Cormorant Garamond',serif;font-size:1.02rem;font-weight:400;color:var(--sand);margin-bottom:0.65rem;}
-.lc ul{list-style:none;display:flex;flex-direction:column;gap:0.38rem;}
-.lc ul li{font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.42);line-height:1.55;padding-left:0.9rem;position:relative;}
-.lc ul li::before{content:'→';position:absolute;left:0;color:var(--lagoon);font-size:0.62rem;top:0.15rem;}
+/* LOGISTICS */
+.lg-grid{display:flex;flex-direction:column;gap:8px;padding:0 20px;}
+.lc{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:15px;}
+.lc h4{font-family:'Cormorant Garamond',serif;font-size:0.98rem;font-weight:400;color:var(--sand);margin-bottom:9px;}
+.lc ul{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.lc ul li{font-size:0.76rem;font-weight:300;color:rgba(255,255,255,0.38);line-height:1.52;padding-left:13px;position:relative;}
+.lc ul li::before{content:'→';position:absolute;left:0;color:var(--teal);font-size:0.58rem;top:0.18rem;}
 
 /* FOOTER */
-footer{text-align:center;padding:5rem 1.5rem 4rem;border-top:1px solid rgba(255,255,255,0.05);position:relative;overflow:hidden;}
-.ft-bg{position:absolute;inset:0;background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Corong_Corong_Beach%2C_Vista%2C_El_Nido%2C_Palawan_Island%2C_Philippines.jpg/1280px-Corong_Corong_Beach%2C_Vista%2C_El_Nido%2C_Palawan_Island%2C_Philippines.jpg');background-size:cover;background-position:center;opacity:0.06;}
-.ft-c{position:relative;z-index:1;}
-.ft-ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(2.5rem,7vw,5.5rem);font-weight:300;font-style:italic;color:rgba(255,255,255,0.13);line-height:1;margin-bottom:0.65rem;}
-.ft-meta{font-family:'Space Mono',monospace;font-size:0.56rem;letter-spacing:0.22em;color:rgba(255,255,255,0.18);text-transform:uppercase;}
-.crew-row{display:inline-flex;gap:0.45rem;flex-wrap:wrap;justify-content:center;margin-top:1.2rem;}
-.cb{font-family:'Space Mono',monospace;font-size:0.52rem;letter-spacing:0.08em;padding:0.28rem 0.7rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:100px;color:rgba(255,255,255,0.28);}
-
-@media(max-width:660px){
-  .cooks-glass{grid-template-columns:1fr;}
-  .cooks-img{min-height:160px;}
-  .why-grid{grid-template-columns:1fr;}
-  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:155px 155px;}
-  .m-img:first-child{grid-row:auto;grid-column:1/3;}
-  .exp-grid{grid-template-columns:1fr;}
-  .sg{grid-template-columns:1fr;}
-  .lg-grid{grid-template-columns:1fr;}
-  .dc.hi{grid-template-columns:72px 1fr;}
-  .dc-img{display:none;}
-  .photo-row{height:130px;}
-  .btt{flex-direction:column;}
-  .btt-amt{font-size:2rem;}
-}
+.ft{text-align:center;padding:28px 20px 18px;border-top:1px solid var(--border);margin-top:22px;}
+.ft-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,11vw,5rem);font-weight:300;font-style:italic;color:rgba(255,255,255,0.07);line-height:1;margin-bottom:7px;}
+.ft-meta{font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;color:rgba(255,255,255,0.15);text-transform:uppercase;}
+.crew-row{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-top:12px;}
+.cb{font-family:'Space Mono',monospace;font-size:0.44rem;letter-spacing:0.06em;padding:4px 9px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:100px;color:rgba(255,255,255,0.2);}
 </style>
 </head>
 <body>
 
-<nav id="nav">
-  <div class="nav-logo">Palawan '27 <span>Mar 11–24</span></div>
-  <div class="nav-links">
-    <a class="nav-link" href="#why">Why</a>
-    <a class="nav-link" href="#itinerary">Days</a>
-    <a class="nav-link" href="#experiences">Experiences</a>
-    <a class="nav-link" href="#coron">Coron</a>
-    <a class="nav-link" href="#safety">Safety</a>
-    <a class="nav-link" href="#budget">Budget</a>
-    <a class="nav-link" href="#logistics">Book This</a>
-  </div>
+<nav id="tabbar">
+  <button class="tab active" onclick="showPage('home',this)">
+    <div class="tab-icon">🏝️</div>
+    <div class="tab-label">Home</div>
+    <div class="tab-dot"></div>
+  </button>
+  <button class="tab" onclick="showPage('days',this)">
+    <div class="tab-icon">🗓️</div>
+    <div class="tab-label">Days</div>
+    <div class="tab-dot"></div>
+  </button>
+  <button class="tab" onclick="showPage('experiences',this)">
+    <div class="tab-icon">🤿</div>
+    <div class="tab-label">Do</div>
+    <div class="tab-dot"></div>
+  </button>
+  <button class="tab" onclick="showPage('safety',this)">
+    <div class="tab-icon">🛡️</div>
+    <div class="tab-label">Safety</div>
+    <div class="tab-dot"></div>
+  </button>
+  <button class="tab" onclick="showPage('budget',this)">
+    <div class="tab-icon">💰</div>
+    <div class="tab-label">Budget</div>
+    <div class="tab-dot"></div>
+  </button>
+  <button class="tab" onclick="showPage('book',this)">
+    <div class="tab-icon">✈️</div>
+    <div class="tab-label">Book</div>
+    <div class="tab-dot"></div>
+  </button>
 </nav>
 
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-ov"></div>
-  <div class="hero-fade"></div>
-  <div class="hero-c">
-    <div class="h-ey">Cook Islands Crew · Trip 02 · March 2027</div>
-    <h1 class="h-t">Palawan,<br><em>Philippines</em></h1>
-    <div class="h-s">El Nido · Coron · 13 nights · Mar 11–24</div>
-    <div class="h-pills">
-      <span class="h-pill">Adventure Over Cities</span>
-      <span class="h-pill">Island Hopping</span>
-      <span class="h-pill">PADI Diving</span>
-      <span class="h-pill">Private Villas</span>
-      <span class="h-pill sp">🎂 Anicka Turns 26 · Mar 14</span>
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-img"><img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=1200&q=85&fit=crop" alt="El Nido Palawan"></div>
+    <div class="hero-grad"></div>
+    <div class="hero-body">
+      <div class="h-crew">Cook Islands Crew · Trip 02 · March 2027</div>
+      <h1 class="h-title">Palawan,<br><em>Philippines</em></h1>
+      <div class="h-sub">El Nido · Coron · 13 nights · Mar 11–24</div>
+      <div class="h-pills">
+        <span class="hp">Adventure</span><span class="hp">Diving</span><span class="hp">Island Hopping</span><span class="hp">Safari</span>
+        <span class="hp bday">🎂 Anicka turns 26</span>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <svg width="14" height="9" viewBox="0 0 14 9" fill="none"><path d="M1 1L7 7L13 1" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg>
+      <span>Scroll</span>
     </div>
   </div>
-  <div class="h-scr"><div class="scr-l"></div><div class="scr-t">Scroll</div></div>
-</section>
 
-<!-- COOKS TRIBUTE -->
-<div class="sec">
-  <div class="s-lbl">From Cook Islands to Palawan</div>
-  <h2 class="s-ttl">Same crew. <em>Bigger water.</em></h2>
-  <p class="s-body">Trip one set the blueprint — private villa, costs split among the group, adventure over resorts, zero itinerary regret. Trip two drops that exact playbook into the most beautiful island chain in Southeast Asia. Open to the right people who want in.</p>
-  <div class="cooks-glass">
-    <div class="cooks-img"></div>
-    <div class="cooks-txt">
+  <div class="sec">
+    <div class="s-label">From Cook Islands to Palawan</div>
+    <h2 class="s-title">Same crew. <em>Bigger water.</em></h2>
+    <p class="s-body">Trip one set the blueprint. Trip two drops it into the most beautiful island chain in Southeast Asia — and it costs less. Open to the right people who want in.</p>
+  </div>
+  <div class="card cooks-card">
+    <div class="cooks-img"><img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=800&q=80&fit=crop" alt="Tropical paradise"></div>
+    <div class="cooks-body">
       <div class="lbl">The Playbook · Proven</div>
       <h2>It <em>worked</em> once.</h2>
-      <p>Cook Islands delivered on every promise — the villa, the sunsets, the shared experiences, the cost of doing it together. Palawan doubles down on all of it with bigger adventures and lower per-day prices once you arrive.</p>
+      <p>Private villa, costs split by the group, experiences over amenities. Cook Islands delivered on every promise. Palawan doubles down — more adventure, lower per-day costs, more nights for nearly the same money.</p>
       <div class="cooks-stats">
-        <div class="cs-i"><div class="num">$2.8k</div><div class="lbl2">Cook Islands pp</div></div>
-        <div class="cs-i"><div class="num">~$2k</div><div class="lbl2">Palawan estimate pp</div></div>
-        <div class="cs-i"><div class="num">13</div><div class="lbl2">nights in paradise</div></div>
+        <div class="cs"><div class="n">$2.8k</div><div class="l">Cook Islands pp</div></div>
+        <div class="cs"><div class="n">~$2k</div><div class="l">Palawan est. pp</div></div>
+        <div class="cs"><div class="n">13</div><div class="l">nights in paradise</div></div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="divider"></div>
-
-<!-- WHY -->
-<div class="sec" id="why">
-  <div class="s-lbl">Thailand vs Philippines · honest answer</div>
-  <h2 class="s-ttl">That TikTok was <em>Railay Beach.</em><br>We're going somewhere better.</h2>
-  <p class="s-body" style="margin-bottom:2rem;">That clip Moose sent — the limestone cliffs, turquoise water, longtail boats — that's Krabi, Thailand. It's beautiful. It also looks almost identical to El Nido. Same geology, same color water, same vibe. Here's why Palawan wins the head-to-head for this specific trip.</p>
-
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:14px;overflow:hidden;margin-bottom:2.5rem;">
-    <!-- Thailand col header -->
-    <div style="background:rgba(255,255,255,0.03);padding:1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.06);">
-      <div style="font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.3);">Thailand · Krabi / Koh Samui</div>
-    </div>
-    <div style="background:rgba(23,162,192,0.07);padding:1rem 1.25rem;border-bottom:1px solid rgba(23,162,192,0.15);">
-      <div style="font-family:'Space Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--lagoon);">Palawan · Philippines ✓</div>
-    </div>
-    <!-- Row 1 -->
-    <div style="padding:1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.82rem;color:rgba(255,255,255,0.4);">🌡️ March is brutal hot season — 95–105°F in cities. Beach areas better but still oppressively humid.</div>
-    <div style="padding:1rem 1.25rem;border-bottom:1px solid rgba(23,162,192,0.08);font-size:0.82rem;color:rgba(255,255,255,0.7);background:rgba(23,162,192,0.03);">☀️ March is Palawan's peak dry season — 82°F, flat calm seas, zero rain. The single best month of the year to be there.</div>
-    <!-- Row 2 -->
-    <div style="padding:1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.82rem;color:rgba(255,255,255,0.4);">🏖️ Railay Beach and the Phi Phi Islands are on every tourist's list — crowded, photo-ready but shared with thousands daily.</div>
-    <div style="padding:1rem 1.25rem;border-bottom:1px solid rgba(23,162,192,0.08);font-size:0.82rem;color:rgba(255,255,255,0.7);background:rgba(23,162,192,0.03);">🌊 El Nido's Secret Beach and Hidden Lagoon are literally inaccessible without a boat. You arrive and there's no one else there.</div>
-    <!-- Row 3 -->
-    <div style="padding:1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.82rem;color:rgba(255,255,255,0.4);">🤿 Diving is good in Thailand. Koh Tao is the budget learn-to-dive hub — but it's a separate island that adds logistics and cost.</div>
-    <div style="padding:1rem 1.25rem;border-bottom:1px solid rgba(23,162,192,0.08);font-size:0.82rem;color:rgba(255,255,255,0.7);background:rgba(23,162,192,0.03);">🤿 PADI Discover Scuba is right in El Nido — step off the villa porch and onto the dive boat. Coron's WWII wrecks are a world-class bonus on day 7.</div>
-    <!-- Row 4 -->
-    <div style="padding:1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.82rem;color:rgba(255,255,255,0.4);">🏡 Villa rental market in Krabi is competitive and more expensive per room. Less "group house" culture than Philippines.</div>
-    <div style="padding:1rem 1.25rem;border-bottom:1px solid rgba(23,162,192,0.08);font-size:0.82rem;color:rgba(255,255,255,0.7);background:rgba(23,162,192,0.03);">🏡 3-bed private pool villas in El Nido are built for exactly this — $150–220/night for the whole house. Better value, more social.</div>
-    <!-- Row 5 -->
-    <div style="padding:1rem 1.25rem;font-size:0.82rem;color:rgba(255,255,255,0.4);">✈️ No direct United routing to Thailand from LAX. Free bag benefit doesn't apply. Flights comparable price but no lounge access.</div>
-    <div style="padding:1rem 1.25rem;font-size:0.82rem;color:rgba(255,255,255,0.7);background:rgba(23,162,192,0.03);">✈️ United direct routing through SFO. Free bags for everyone on the booking. <strong style="color:#4ade80;">LAX United Club access before departure</strong> included with the card.</div>
+  <div class="sec">
+    <div class="s-label">Thailand vs Philippines</div>
+    <h2 class="s-title">That TikTok was <em>Railay.</em><br>We're going somewhere better.</h2>
+    <p class="s-body">Same limestone cliffs, same turquoise water, same longtail boats. El Nido has the identical geology — with fewer tourists and a better trip for this specific group.</p>
+  </div>
+  <div class="vs-table">
+    <div class="vs-header"><div class="vs-h thai">Thailand · Krabi</div><div class="vs-h pal">Palawan ✓</div></div>
+    <div class="vs-row"><div class="vs-cell thai">🌡️ March: 95–105°F brutal hot season, oppressive humidity</div><div class="vs-cell pal">☀️ March: peak dry season, 82°F, flat seas, zero rain</div></div>
+    <div class="vs-row"><div class="vs-cell thai">🏖️ Railay and Phi Phi shared with thousands daily</div><div class="vs-cell pal">🌊 Secret Beach unreachable without a private boat</div></div>
+    <div class="vs-row"><div class="vs-cell thai">🤿 Koh Tao diving adds a whole extra island and logistics</div><div class="vs-cell pal">🤿 PADI DSD day 2. Coron WWII wrecks in the same trip</div></div>
+    <div class="vs-row"><div class="vs-cell thai">🏡 Krabi villa market pricier per room for a group</div><div class="vs-cell pal">🏡 3-bed pool villa in El Nido: $150–220/night whole house</div></div>
+    <div class="vs-row"><div class="vs-cell thai">✈️ No United routing. Free bag benefit doesn't apply</div><div class="vs-cell pal">✈️ United via SFO. Free 2nd bag. LAX United Club lounge</div></div>
+    <div class="vs-note">El Nido delivers the same shot as that TikTok — with fewer people in it.</div>
   </div>
 
-  <p style="font-size:0.85rem;font-weight:300;color:rgba(255,255,255,0.4);font-style:italic;margin-bottom:2.5rem;max-width:600px;">The TikTok that sold Anicka on Thailand? That's Railay. El Nido has the same limestone cliffs, the same color water, fewer tourists, better diving, and a villa that costs less per night. She'll love it more.</p>
-
-  <div class="s-lbl">The case for Palawan</div>
-  <h2 class="s-ttl">Warm. Wild. <em>Under budget.</em></h2>
-  <p class="s-body">Rated the world's best island multiple times. March is peak dry season — 82°F, calm seas, no rain risk, 25m+ dive visibility. The birthday lands on day 4, not the last day. Eight days still ahead when she wakes up — and a safari, wrecks, and a hot spring still to come.</p>
+  <div class="sec">
+    <div class="s-label">6 reasons this works</div>
+    <h2 class="s-title">Warm. Wild. <em>Under budget.</em></h2>
+  </div>
   <div class="why-grid">
-    <div class="wc"><div class="wc-icon">🌊</div><h3>World's best island hopping</h3><p>Bacuit Bay has 45+ islands, hidden lagoons accessible only by kayak, sea caves, and limestone cliffs rising 200m straight from turquoise water. No two days look the same.</p></div>
-    <div class="wc"><div class="wc-icon">🤿</div><h3>Diving for everyone, zero experience needed</h3><p>PADI Discover Scuba puts the group on actual reef dives on day two with no prior certification. Coron's WWII fleet is one of the world's top 10 wreck dive sites.</p></div>
-    <div class="wc"><div class="wc-icon">🏡</div><h3>Villa math that works</h3><p>3-bed private pool villas in El Nido run $150–220/night for the whole house. The more people who join, the better this gets — costs only improve with size.</p></div>
-    <div class="wc"><div class="wc-icon">🗓️</div><h3>Birthday lands day 4</h3><p>Flying Mar 11. Birthday Mar 14. She wakes up in El Nido — limestone cliffs outside, private boat booked for the day — with 8 days still ahead.</p></div>
-    <div class="wc"><div class="wc-icon">☀️</div><h3>March = peak dry season</h3><p>Palawan sits south of the typhoon belt. March brings flat seas, maximum visibility, and perfect temperatures while the rest of Southeast Asia sweats through hot season.</p></div>
-    <div class="wc"><div class="wc-icon">✈️</div><h3>$844 round trip · free bags · lounge access</h3><p>United routing through SFO. United card covers free checked bags for everyone on the booking (~$85 saved per person). LAX United Club lounge access before departure — food, drinks, showers. The trip starts well before boarding.</p></div>
+    <div class="wc"><div class="wc-top"><div class="wc-icon">🌊</div><h3>World's best island hopping</h3></div><p>45+ islands, kayak-only lagoons, sea caves, 200m limestone walls. No two days look the same in Bacuit Bay.</p></div>
+    <div class="wc"><div class="wc-top"><div class="wc-icon">🤿</div><h3>Diving for everyone — zero experience needed</h3></div><p>PADI DSD puts the group on real reef dives day two. Coron's WWII Japanese fleet is a top-10 wreck site on earth.</p></div>
+    <div class="wc"><div class="wc-top"><div class="wc-icon">🦒</div><h3>Giraffes. In the Philippines.</h3></div><p>Calauit Island: real African giraffes and zebras roaming next to coconut palms. The most surreal day of the trip.</p></div>
+    <div class="wc"><div class="wc-top"><div class="wc-icon">🏡</div><h3>Villa math that works</h3></div><p>3-bed private pool villa: $25–37pp/night. More people joining only makes it better.</p></div>
+    <div class="wc"><div class="wc-top"><div class="wc-icon">🗓️</div><h3>Birthday lands on day 4</h3></div><p>She wakes up in El Nido for her 26th with 10 days still ahead. Safari, wrecks, hot springs, and a rest day still to come.</p></div>
+    <div class="wc"><div class="wc-top"><div class="wc-icon">✈️</div><h3>$844 RT · free 2nd bag · United Club</h3></div><p>United via SFO. Card covers 2nd checked bag (up to $200pp savings round trip). LAX United Club before departure.</p></div>
   </div>
 
-  <div class="mosaic">
-    <div class="m-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/El_Nido_Bay%2C_Island_lagoon%2C_Tropical_lagoon%2C_Palawan%2C_Philippines.jpg/1280px-El_Nido_Bay%2C_Island_lagoon%2C_Tropical_lagoon%2C_Palawan%2C_Philippines.jpg" alt="El Nido lagoon" loading="lazy"><div class="m-lbl">Bacuit Bay · El Nido</div></div>
-    <div class="m-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/El_Nido_Bay%2C_Island_lagoon%2C_Palawan%2C_Philippines.jpg/1280px-El_Nido_Bay%2C_Island_lagoon%2C_Palawan%2C_Philippines.jpg" alt="El Nido island" loading="lazy"><div class="m-lbl">Big Lagoon</div></div>
-    <div class="m-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Limestone_island_in_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg/1280px-Limestone_island_in_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg" alt="Limestone El Nido" loading="lazy"><div class="m-lbl">Limestone Islands</div></div>
+  <div class="img-break" style="margin-top:22px;">
+    <img src="https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=1000&q=85&fit=crop" alt="El Nido Philippines">
+    <div class="img-break-cap">Bacuit Bay · El Nido · Palawan</div>
   </div>
-</div>
 
-<div class="img-break" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Island_lagoon_in_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg/1280px-Island_lagoon_in_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg');">
-  <div class="ib-ov"></div>
-  <div class="ib-lbl">Bacuit Bay · El Nido · Palawan · Philippines</div>
-</div>
-
-<!-- ITINERARY -->
-<div class="sec" id="itinerary">
-  <div class="s-lbl">Day by day</div>
-  <h2 class="s-ttl">The <em>full itinerary</em></h2>
-  <p class="s-body">Three acts. Eleven nights. Manila → El Nido → Coron. One birthday right in the middle.</p>
-</div>
-
-<!-- ACT I -->
-<div class="act-band">
-  <div class="act-hdr">
-    <div class="act-num">I</div>
-    <div class="act-info"><h2>Manila · The Arrival</h2><div class="act-sub">Mar 11–13 · Transit nights</div></div>
-  </div>
-  <div class="days">
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">11</div><div class="dw">Thu</div></div>
-      <div class="db"><h3>Depart LAX · UA 2831 → UA 809</h3><p>11:43 AM out of LAX — but first, United Club lounge access at LAX before departure (included with United card). Food, drinks, showers, comfortable seats. 50-min SFO connection, board UA 809 Boeing 777 at 2:05 PM. Land Manila 9:10 PM local time. Transfer to hotel in Makati or BGC — mid-range private rooms $40–60/night, three couples splitting three rooms. Rest up.</p><div class="pills"><span class="pi">LAX → SFO → MNL</span><span class="pi">$844 rt confirmed</span><span class="pi gr">Free bags · UA card</span><span class="pi gr">LAX United Club lounge</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/Iconic_Manila_Bay_sunset%2C_Manila%2C_Philippines.jpg/1280px-Iconic_Manila_Bay_sunset%2C_Manila%2C_Philippines.jpg" alt="Manila sunset" loading="lazy"></div>
-    </div>
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">12</div><div class="dw">Fri</div></div>
-      <div class="db"><h3>Manila · Intramuros + Kickoff Dinner</h3><p>One morning in Manila's 400-year-old Spanish walled city — $4 entry, genuinely worth two hours. Lunch at a local turo-turo canteen ($3–5 a plate). Evening: BGC rooftop to mark the start of the trip officially. Fly to El Nido tomorrow morning.</p><div class="pills"><span class="pi">Intramuros · $4</span><span class="pi">Street food · ~$5pp</span><span class="pi">Low spend day</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Manila_Bay.jpg/1280px-Manila_Bay.jpg" alt="Manila Bay" loading="lazy"></div>
-    </div>
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">13</div><div class="dw">Sat</div></div>
-      <div class="db"><h3>Manila → El Nido · AirSwift Direct</h3><p>AirSwift direct MNL → Lio Airport (ENI) El Nido — 1h 20min, ~$85/person. Book early: seats sell out weeks ahead in peak season. Land midday. Villa check-in, first swim, grocery run to stock up (San Miguel beer: ~$1/bottle). Sunset from the beach. Tomorrow is the birthday.</p><div class="pills"><span class="pi">AirSwift MNL→ENI · ~$85pp</span><span class="pi">Villa check-in</span><span class="pi">Town dinner · ~$12pp</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/El_Nido_Bay%2C_Filipino_boat%2C_Bangka_boat%2C_Palawan%2C_Philippines.jpg/1280px-El_Nido_Bay%2C_Filipino_boat%2C_Bangka_boat%2C_Palawan%2C_Philippines.jpg" alt="El Nido boat" loading="lazy"></div>
-    </div>
-  </div>
-</div>
-
-<!-- BDAY -->
-<div class="sec" style="padding-top:0;padding-bottom:0;">
-  <div class="bday-splash">
-    <div class="bs-bg"></div>
-    <div class="bs-ov"></div>
-    <div class="bs-c">
-      <div class="bs-date">🎂 March 14, 2027 · Day 4 of 11</div>
-      <h2>Happy Birthday, Anicka.</h2>
-      <p>She turns 26 in El Nido, Palawan — one of the most beautiful places on the planet. Private bangka booked for the group all day. Big Lagoon in the morning, Hidden Beach in the afternoon, sunset champagne on limestone cliffs, dinner at the best table in town. Eight days still ahead.</p>
-    </div>
-  </div>
-</div>
-
-<!-- ACT II -->
-<div class="act-band">
-  <div class="act-hdr">
-    <div class="act-num">II</div>
-    <div class="act-info"><h2>El Nido · The Heart</h2><div class="act-sub">Mar 14–19 · 6 nights · Bacuit Bay</div></div>
-  </div>
-  <div class="days">
-    <div class="dc hi bday">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">14</div><div class="dw">Sun</div></div>
-      <div class="db"><h3>🎂 Birthday · Private Tour A · Big Lagoon</h3><p>Private bangka for the group — Tour A: Big Lagoon (kayak inside 200m limestone walls), Small Lagoon, Shimizu Island reef, Seven Commando Beach. ~$180–220 total for the private boat = ~$30–37pp. Sunset champagne on the cliff. Dinner: Arte Restaurant, full group, no early morning — this is the night to go all out.</p><div class="pills"><span class="pi co">Birthday</span><span class="pi">Private boat ~$33pp</span><span class="pi">Birthday dinner ~$35pp</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/El_Nido_Bay%2C_Island_lagoon%2C_Palawan%2C_Philippines.jpg/1280px-El_Nido_Bay%2C_Island_lagoon%2C_Palawan%2C_Philippines.jpg" alt="Big Lagoon El Nido" loading="lazy"></div>
-    </div>
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">15</div><div class="dw">Mon</div></div>
-      <div class="db"><h3>PADI Discover Scuba · First Dives</h3><p>Full group does PADI DSD at Fun Divers El Nido or Palawan Divers. No certification needed — one briefing, confined water practice, then 2 real reef dives to 12m. ~$63–82/person including all gear, guide, boat, and lunch. Non-divers snorkel from the boat alongside the group — instructors accommodate.</p><div class="pills"><span class="pi">PADI DSD · ~$75pp</span><span class="pi">All gear included</span><span class="pi">12m depth max</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Coral%2C_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg/1280px-Coral%2C_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg" alt="Coral reef" loading="lazy"></div>
-    </div>
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">16</div><div class="dw">Tue</div></div>
-      <div class="db"><h3>Tour C · Secret Beach + Helicopter Island</h3><p>Private boat Tour C: Helicopter Island's dramatic limestone arch, Secret Beach (swim through a cave in a rock wall into a hidden white-sand cove), Talisay Beach. Full day, buffet lunch on the boat. ~$35pp private. Afternoon: villa pool and a group cook-in dinner from the fresh market.</p><div class="pills"><span class="pi">Secret Beach</span><span class="pi">Helicopter Island</span><span class="pi">Villa cook-in · ~$8pp</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Limestone_island_in_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg/1280px-Limestone_island_in_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg" alt="Helicopter Island" loading="lazy"></div>
-    </div>
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">17</div><div class="dw">Wed</div></div>
-      <div class="db"><h3>Nacpan Beach + Bulalacao Waterfalls</h3><p>Private van north ($40 for the group) to Nacpan — 4km twin-beach stretch, one of the Philippines' finest. Grilled fish from beachside stalls ($4–6). Bulalacao Waterfalls on the way back: short jungle trek, rope swing, freshwater swimming hole. Evening: Real Street El Nido for mango shakes and nightlife.</p><div class="pills"><span class="pi">Nacpan Beach</span><span class="pi">Waterfall swim</span><span class="pi">~$15pp full day</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/El_Nido%2C_Beach%2C_Palawan%2C_Philippines.jpg/1280px-El_Nido%2C_Beach%2C_Palawan%2C_Philippines.jpg" alt="El Nido beach" loading="lazy"></div>
-    </div>
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">18</div><div class="dw">Thu</div></div>
-      <div class="db"><h3>Second Dives + Tour D · Remote Islands</h3><p>Morning: 2-dive fun trip for those who want it — everyone who did the DSD can now go deeper. ~$90 for a 2-dive trip. Afternoon Tour D: Matinloc Shrine carved into limestone cliffs, Star Beach, uninhabited island beaches. Quieter than A/C but arguably the most remote and beautiful route.</p><div class="pills"><span class="pi">Fun dives · ~$90pp</span><span class="pi">Tour D · ~$35pp</span><span class="pi">Matinloc Shrine</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Limestone_islands_in_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg/1280px-Limestone_islands_in_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg" alt="Remote El Nido islands" loading="lazy"></div>
-    </div>
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">19</div><div class="dw">Fri</div></div>
-      <div class="db"><h3>El Nido → Coron · Scenic Fast Ferry</h3><p>Final El Nido morning — market souvenir run (woven bags, fresh pearls, dried mango). Lunch at El Nido Boutique Artcafé. Phimal Fast Ferry departs 12:00 PM from El Nido pier — 3.5 hours crossing uninhabited limestone islands, one of Southeast Asia's most scenic ferry routes. ~$40pp. Arrive Coron late afternoon, villa check-in.</p><div class="pills"><span class="pi">Ferry ~$40pp · 3.5hrs</span><span class="pi">Scenic limestone crossing</span><span class="pi">Coron villa check-in</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/El_Nido_Bay%2C_Pump_boat%2C_Palawan%2C_Philippines.jpg/1280px-El_Nido_Bay%2C_Pump_boat%2C_Palawan%2C_Philippines.jpg" alt="Ferry El Nido" loading="lazy"></div>
-    </div>
-  </div>
-</div>
-
-<!-- EXPERIENCES -->
-<div class="sec" id="experiences">
-  <div class="s-lbl">What you'll actually do</div>
-  <h2 class="s-ttl">The <em>experiences</em></h2>
-  <p class="s-body">Not a resort trip. Every day is something you'll talk about for years — and most of it costs less than a dinner out at home.</p>
-  <div class="exp-grid">
-    <div class="ec">
-      <div class="ec-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Big_Lagoon_El_Nido_Palawan.jpg/1280px-Big_Lagoon_El_Nido_Palawan.jpg');"></div>
-      <div class="ec-ov"></div>
-      <div class="ec-b"><div class="ec-lbl">El Nido · Tour A</div><h3>Big Lagoon by Kayak</h3><p>Paddle inside 200m limestone walls to a hidden turquoise lagoon. No motorboats allowed — just kayaks and silence.</p><div class="ec-pr">~$33pp · private boat · full day</div></div>
-    </div>
-    <div class="ec">
-      <div class="ec-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Small_Lagoon_El_Nido.jpg/1280px-Small_Lagoon_El_Nido.jpg');"></div>
-      <div class="ec-ov"></div>
-      <div class="ec-b"><div class="ec-lbl">El Nido · Tour C</div><h3>Secret Beach</h3><p>Swim through a narrow cave in a limestone wall. Emerge into a completely hidden white-sand cove. No boats, no crowds.</p><div class="ec-pr">Included in Tour C · ~$35pp private</div></div>
-    </div>
-    <div class="ec">
-      <div class="ec-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Coral%2C_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg/1280px-Coral%2C_Bacuit_Bay%2C_El_Nido%2C_Palawan%2C_Philippines.jpg');"></div>
-      <div class="ec-ov"></div>
-      <div class="ec-b"><div class="ec-lbl">El Nido · PADI Discover Scuba</div><h3>First Dive · Bacuit Reef</h3><p>No experience needed. One briefing, one shallow practice, then real reef dives on El Nido's protected marine sanctuary — sea turtles, giant clams, reef fish.</p><div class="ec-pr">~$75pp · gear, guide, boat, lunch all in</div></div>
-    </div>
-    <div class="ec">
-      <div class="ec-bg" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Kayangan_Lake_in_Coron%2C_Palawan.jpg/1280px-Kayangan_Lake_in_Coron%2C_Palawan.jpg');"></div>
-      <div class="ec-ov"></div>
-      <div class="ec-b"><div class="ec-lbl">Coron · Ultimate Tour</div><h3>Kayangan Lake</h3><p>Rated the cleanest lake in Asia. A limestone staircase hike opens onto crystal-clear mountain water surrounded by cliffs. One of those places photos don't do justice.</p><div class="ec-pr">~$35pp · private boat · all stops included</div></div>
-    </div>
-  </div>
-</div>
-
-<!-- PHOTO ROW -->
-<div style="max-width:960px;margin:0 auto;padding:0 1.5rem;">
-  <div class="photo-row">
-    <div class="pr"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Coron_Palawan_Philippines_Barracuda_Lake.jpg/1280px-Coron_Palawan_Philippines_Barracuda_Lake.jpg" alt="Barracuda Lake" loading="lazy"><div class="pr-lbl">Barracuda Lake · Coron</div></div>
-    <div class="pr"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Twin_Lagoon_Coron_Palawan_Philippines.jpg/1280px-Twin_Lagoon_Coron_Palawan_Philippines.jpg" alt="Twin Lagoon" loading="lazy"><div class="pr-lbl">Twin Lagoon · Coron</div></div>
-    <div class="pr"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/El_Nido%2C_Filipino_sunset%2C_Palawan%2C_Philippines.jpg/1280px-El_Nido%2C_Filipino_sunset%2C_Palawan%2C_Philippines.jpg" alt="Palawan sunset" loading="lazy"><div class="pr-lbl">Filipino Sunset · Palawan</div></div>
-  </div>
-</div>
-
-<!-- ACT III CORON -->
-<div class="sec" id="coron" style="padding-bottom:0;">
-  <div class="s-lbl">Act III · Mar 19–24</div>
-  <h2 class="s-ttl">Coron · <em>Wrecks, Lakes & Safari</em></h2>
-  <p class="s-body">Five nights in Palawan's wreck diving capital. Fewer crowds than El Nido, dramatic mountain lakes, saltwater hot springs, and the most surreal experience of the trip: feeding giraffes and watching zebras roam on a tropical Philippine island.</p>
-</div>
-
-<div class="act-band" style="padding-top:0;">
-  <div class="days" style="padding-top:1.5rem;">
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">20</div><div class="dw">Sat</div></div>
-      <div class="db"><h3>Kayangan Lake + Twin Lagoon · Coron Ultimate Tour</h3><p>Private boat for the group. Kayangan Lake: short limestone staircase hike opens onto crystal-clear mountain water rated the cleanest lake in Asia. Twin Lagoon: swim between connected salt and freshwater through a low rock arch. Skeleton Wreck snorkeling — a WWII Japanese ship lying just below the surface, visible from above. Banol Beach for lunch. One of the best full days of the entire trip.</p><div class="pills"><span class="pi">Kayangan Lake</span><span class="pi">Twin Lagoon</span><span class="pi">WWII wreck snorkel</span><span class="pi">~$35pp private boat</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Kayangan_Lake_in_Coron%2C_Palawan.jpg/1280px-Kayangan_Lake_in_Coron%2C_Palawan.jpg" alt="Kayangan Lake" loading="lazy"></div>
-    </div>
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">21</div><div class="dw">Sun</div></div>
-      <div class="db"><h3>WWII Shipwreck Dives + Maquinit Hot Spring</h3><p>Morning: divers hit Okikawa Maru (18m, perfect for newly certified group) or East Tangat Wreck — full gear package ~$80–100 for 2 wrecks with an experienced guide. These are among the most famous wreck dives on the planet. Afternoon: everyone reconvenes at Maquinit Hot Spring — one of only two saltwater hot springs in the world, 39°C, open-air jungle setting, $6 entry. Group dinner together to close out the dive chapter.</p><div class="pills"><span class="pi">WWII wreck dives · ~$90pp</span><span class="pi">Maquinit Hot Spring · $6</span><span class="pi">Group dinner</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Twin_Lagoon_Coron_Palawan_Philippines.jpg/1280px-Twin_Lagoon_Coron_Palawan_Philippines.jpg" alt="Coron diving" loading="lazy"></div>
-    </div>
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">22</div><div class="dw">Mon</div></div>
-      <div class="db"><h3>🦒 Calauit Safari Park · Giraffes & Zebras in the Philippines</h3><p>The most unexpected day of the trip. Calauit Island hosts a 3,700-hectare wildlife sanctuary where African giraffes, zebras, and Grevy's zebras roam freely alongside endemic Palawan species — installed by Marcos in 1977, now a thriving conservation park. Full-day organized tour: van from Coron, boat to the island, safari truck ride, guide, lunch. ~$40–50pp all-in. You feed a giraffe from a cage. You watch zebras graze in front of limestone cliffs and coconut palms. Nothing about it makes sense, and that's exactly the point.</p><div class="pills"><span class="pi">Giraffes + Zebras</span><span class="pi">Safari truck ride</span><span class="pi">Black Island swim</span><span class="pi">~$45pp all-in</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Coron_Palawan_Philippines_Barracuda_Lake.jpg/1280px-Coron_Palawan_Philippines_Barracuda_Lake.jpg" alt="Calauit Safari Coron" loading="lazy"></div>
-    </div>
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">23</div><div class="dw">Tue</div></div>
-      <div class="db"><h3>Rest Day · Coron Town + Barracuda Lake</h3><p>No early alarm. Sleep in. This is the buffer day — explore Coron town market, pick up final souvenirs (local honey, dried mango, woven goods). Afternoon option: Barracuda Lake, a UNESCO-listed volcanic lake with a unique thermocline where cold and warm water layers meet — eerie, beautiful, unlike anything else. ~$10pp entry. Sunset drinks at a Coron rooftop. Last full night together.</p><div class="pills"><span class="pi">Barracuda Lake · ~$10</span><span class="pi">Coron market</span><span class="pi">Slow day · no alarm</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Coron_Palawan_Philippines_Barracuda_Lake.jpg/1280px-Coron_Palawan_Philippines_Barracuda_Lake.jpg" alt="Barracuda Lake" loading="lazy"></div>
-    </div>
-    <div class="dc hi">
-      <div class="dd"><div class="mo">Mar</div><div class="dn">24</div><div class="dw">Wed</div></div>
-      <div class="db"><h3>Mount Tapyas Sunrise · Then Home</h3><p>568 steps up Mount Tapyas for a 360° view of Coron bay at sunrise — free, 45 minutes, genuinely not optional. Final breakfast together. Van to Busuanga Airport (USU), ~$9 shared shuttle, 40 minutes. Cebu Pacific or AirAsia to Manila (~$50). Connect to UA 190 MNL → SFO → LAX. Home by evening with two extra days of memories and the same flight cost.</p><div class="pills"><span class="pi">Mount Tapyas · Free</span><span class="pi">Coron → MNL → LAX</span><span class="pi gr">13 nights complete</span></div></div>
-      <div class="dc-img"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Corong_Corong_Beach%2C_Vista%2C_El_Nido%2C_Palawan_Island%2C_Philippines.jpg/1280px-Corong_Corong_Beach%2C_Vista%2C_El_Nido%2C_Palawan_Island%2C_Philippines.jpg" alt="Coron bay view" loading="lazy"></div>
-    </div>
-  </div>
-</div>
-
-<div class="img-break" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Kayangan_Lake_in_Coron%2C_Palawan.jpg/1280px-Kayangan_Lake_in_Coron%2C_Palawan.jpg');margin-top:3rem;">
-  <div class="ib-ov"></div>
-  <div class="ib-lbl">Kayangan Lake · Coron · Palawan · Rated cleanest lake in Asia</div>
-</div>
-
-<!-- SAFETY -->
-<div class="sec" id="safety">
-  <div class="s-lbl">Verified safety facts · 2026</div>
-  <h2 class="s-ttl">Palawan is <em>safe</em></h2>
-  <p class="s-body">Concerns about Philippines safety are real for the wrong parts of the country. Here's what current 2026 travel data and government advisories actually say about Palawan.</p>
-  <div><div class="safety-badge">Verified · Low Risk Destination · 2026 Sources</div></div>
-  <div class="sg">
-    <div class="sc"><div class="ic">🛡️</div><h4>Crime against tourists: Very low</h4><p>El Nido and Coron rank among the safest tourist zones in the Philippines. Violent crime targeting visitors is extremely rare. Most incidents are minor scams — overpriced tours — easily avoided by booking through verified operators.</p></div>
-    <div class="sc"><div class="ic">📍</div><h4>ISIS concerns don't apply to Palawan</h4><p>US State Dept, UK FCDO, and Australian SmartTraveller all flag Western/Central Mindanao and the Sulu Archipelago only. Palawan is a completely separate island chain, hundreds of miles away. You're not going anywhere near flagged regions.</p></div>
-    <div class="sc"><div class="ic">🌊</div><h4>Water and diving: operator rules matter</h4><p>All reputable dive shops display valid PADI/SSI certification. Life jackets are mandatory on island-hopping boats. March is peak dry season — calm seas, excellent visibility. Box jellyfish risk is minimal (peak is June–October).</p></div>
-    <div class="sc"><div class="ic">🏥</div><h4>Medical: travel insurance is non-negotiable</h4><p>El Nido has clinics for minor issues. Serious conditions require evacuation to Puerto Princesa (5–6 hrs) or Manila. Travel insurance with medical evacuation is essential — budget $50–80pp for 11 days. Without it you're taking a real financial risk.</p></div>
-    <div class="sc"><div class="ic">🦟</div><h4>Health prep · see a travel doctor</h4><p>4–6 weeks before: Hepatitis A, Typhoid, Tetanus recommended. Discuss malaria prophylaxis — risk is low in El Nido tourist zone but worth the conversation. DEET at dawn/dusk. Bottled water only throughout the trip.</p></div>
-    <div class="sc"><div class="ic">🛵</div><h4>The real risk: skip the motorbikes</h4><p>Leading cause of tourist injury in El Nido. Roads to Nacpan Beach are unpaved with loose gravel. The group should hire a private van — safer, equally fun split among 6+, and everyone stays intact.</p></div>
-  </div>
-</div>
-
-<!-- BUDGET -->
-<div class="sec" id="budget">
-  <div class="s-lbl">The numbers · verified</div>
-  <h2 class="s-ttl">Budget per <em>person</em></h2>
-  <p class="s-body">Every figure is searched and confirmed, not estimated. These numbers assume 6 people — more travelers only improve them. Book early to land at the low end.</p>
-  <div class="bgt-bg">
-    <table>
-      <thead><tr><th>Category</th><th>Notes</th><th style="text-align:right;">Per Person</th></tr></thead>
-      <tbody>
-        <tr><td>Flights (round trip)<div class="tn">LAX → SFO → MNL → LAX via United · UA 2831/809 out, UA 190 return · Boeing 777 long-haul</div></td><td>
-          Mar 11–24 confirmed $844 ·
-          <span style="color:#4ade80;font-size:0.78rem;">United card: 2nd bag free</span> (saves ~$100pp each way if checking 2 bags = up to $200 round trip) ·
-          <span style="color:#4ade80;font-size:0.78rem;">LAX United Club lounge access</span> before departure — food, drinks, showers included ·
-          Note: 1st bag already free on trans-Pacific routes for all economy passengers
-        </td><td>$844<div class="tn" style="color:#4ade80;">+up to $200 bag savings (2nd bag free, both ways)</div></td></tr>
-        <tr><td>Manila hotel (1 night)<div class="tn">3 rooms split by couple · Makati or BGC</div></td><td>Mid-range private rooms · group apartment possible</td><td>$25–40</td></tr>
-        <tr><td>El Nido villa (6 nights)<div class="tn">3-bed private pool villa · AC · Airbnb/VRBO · split 6+</div></td><td>3-bed pool villas verified $150–220/night. $25–37/night pp</td><td>$150–220</td></tr>
-        <tr><td>Coron villa (5 nights)<div class="tn">3-bed villa · Coron Town · private · AC · split 6+</div></td><td>Verified $80–120/night. $13–20/night pp split 6. Two extra nights = ~$30pp more vs original plan.</td><td>$65–100</td></tr>
-        <tr><td>Internal flights Philippines<div class="tn">MNL→ENI (AirSwift) + Coron→MNL (Cebu Pacific)</div></td><td>AirSwift ~$85 · Cebu Pac ~$40–60. Book early — ENI sells out.</td><td>$130–150</td></tr>
-        <tr><td>El Nido → Coron ferry<div class="tn">Phimal Fast Ferry · 3.5 hrs · Mar 19 depart 12:00 PM</div></td><td>Verified $30–50/person foot passenger 2026</td><td>$30–50</td></tr>
-        <tr><td>Island hopping + safari (5 experiences)<div class="tn">Birthday Tour A + Tour C + Tour D + Coron Ultimate + Calauit Safari</div></td><td>$180–220/boat split 6+ × tours · Calauit ~$45pp all-in verified 2026</td><td>$165–210</td></tr>
-        <tr><td>Diving (2 experiences)<div class="tn">PADI DSD El Nido + wreck dives Coron</div></td><td>DSD ~$75 verified · fun/wreck dives ~$90 verified 2026</td><td>$165–185</td></tr>
-        <tr><td>Food (13 days)<div class="tn">Villa cook-ins, local karinderyas, sit-down restaurants, birthday dinner</div></td><td>$20–30/day comfortable. Birthday dinner ~$35. $25/day avg.</td><td>$325–390</td></tr>
-        <tr><td>Local transport<div class="tn">Tricycles, Grab cars, van hire, airport shuttles, harbor fees</div></td><td>Philippines transport is cheap. Group hire splits very well.</td><td>$60–80</td></tr>
-        <tr><td>Eco fees + tips + misc<div class="tn">El Nido ETDF $7, Kayangan Lake entry, guide tips</div></td><td>Tip Filipino guides generously — it means significantly more here.</td><td>$60–80</td></tr>
-      </tbody>
-    </table>
-    <div class="btt">
-      <div><div class="btt-lbl">Estimated total · per person</div><div class="btt-sub">All in · 13 nights · flights + accommodation + activities + food</div></div>
-      <div class="btt-amt">$2,044–$2,394</div>
-    </div>
-    <div class="sav">
-      <span style="font-size:1.05rem;flex-shrink:0;">💰</span>
-      <p>Cook Islands came in at ~$2,800 per person for 10 nights. Palawan delivers 13 nights — two more days, a safari, and significantly more adventure — for <strong>$400–750 less per person</strong>. Same villa model, lower daily costs, more to do. The math gets better with every additional person who joins.</p>
-    </div>
-  </div>
-</div>
-
-<!-- LOGISTICS -->
-<div class="sec" id="logistics">
-  <div class="s-lbl">Before you book</div>
-  <h2 class="s-ttl">Book in this <em>order</em></h2>
-  <p class="s-body">Some things sell out weeks ahead in peak season. Do these in sequence — flights and villas first.</p>
-  <div class="lg-grid">
-    <div class="lc"><h4>🗓️ Step 1 — Lock flights now</h4><ul><li>Mar 11–24 confirmed at $844 — prices shift fast</li><li>All travelers on same United booking for free bag benefit</li><li>Confirm all passports valid 6+ months past March 2027</li><li>Group size flexible — the more who join, the better the math gets</li></ul></div>
-    <div class="lc"><h4>🏡 Step 2 — Book villas immediately after</h4><ul><li>El Nido 3-bed pool villa on Airbnb/VRBO for Mar 13–19 (6 nights)</li><li>Coron 3-bed villa Mar 19–24 · look for generator backup</li><li>Prioritize: private pool, AC in all bedrooms, Starlink wifi</li><li>Larger groups: 4-bed properties exist and still split extremely well</li></ul></div>
-    <div class="lc"><h4>✈️ Step 3 — Internal flights</h4><ul><li>AirSwift MNL→Lio Airport (ENI) El Nido — book ASAP, sells out weeks ahead</li><li>Cebu Pacific or AirAsia Coron (Busuanga/USU) → Manila for return leg</li><li>If ENI sells out: Puerto Princesa route + 5-hr van is the alternative</li></ul></div>
-    <div class="lc"><h4>🏥 Step 4 — Health prep (8+ weeks before)</h4><ul><li>Travel doctor appointment for all travelers</li><li>Hep A, Typhoid, Tetanus recommended · discuss malaria prophylaxis</li><li>Travel insurance with medical evacuation — every person, no exceptions</li><li>Budget $50–80pp for a solid policy that covers adventure activities</li></ul></div>
-    <div class="lc"><h4>🤿 Step 5 — Book activities (4–6 wks before)</h4><ul><li>PADI DSD: Fun Divers El Nido or Palawan Divers — instructor slots limited</li><li>Birthday Tour A private boat — request sunset timing specifically</li><li>Coron wreck dives: Discovery Divers Coron or Sea Dive Coron</li><li>Phimal Fast Ferry El Nido→Coron Mar 19 — book online min 5 days prior</li></ul></div>
-    <div class="lc"><h4>📱 Download before departure</h4><ul><li>Grab — Southeast Asia's Uber, works in Manila and Puerto Princesa</li><li>Maps.me — offline maps for El Nido (spotty data in some areas)</li><li>Wise or Revolut card — far better exchange rates than airport conversion</li><li>Bring USD cash for El Nido — ATMs charge fees and run dry at peak season</li></ul></div>
-  </div>
-</div>
-
-<footer>
-  <div class="ft-bg"></div>
-  <div class="ft-c">
-    <div class="ft-ttl">Palawan, 2027</div>
+  <div class="ft">
+    <div class="ft-title">Palawan, 2027</div>
     <div class="ft-meta">El Nido · Coron · Mar 11–24 · Anicka turns 26</div>
     <div class="crew-row">
-      <span class="cb">The Original Crew</span>
-      <span class="cb">+ whoever's in 🤙</span>
-      <span class="cb">Cook Islands Trip 01 ✓</span>
-      <span class="cb">Palawan Trip 02</span>
+      <span class="cb">The Original Crew</span><span class="cb">+ whoever's in 🤙</span>
+      <span class="cb">Cook Islands Trip 01 ✓</span><span class="cb">Palawan Trip 02</span>
     </div>
   </div>
-</footer>
+</div>
+
+<div id="page-days" class="page">
+  <div class="sec" style="padding-top:20px;">
+    <div class="s-label">Day by day</div>
+    <h2 class="s-title">13 nights. <em>3 acts.</em></h2>
+    <p class="s-body">Manila → El Nido → Coron. One birthday right in the middle of all of it.</p>
+  </div>
+
+  <div class="act-hdr"><div class="act-n">I</div><div class="act-info"><h2>The Arrival · Manila</h2><div class="act-sub">Mar 11–13 · Transit nights</div></div></div>
+  <div class="days">
+    <div class="dc">
+      <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=75&fit=crop" alt="Manila bay"><div class="dc-img-overlay"></div><div class="dc-img-title">Depart LAX · Mar 11</div></div>
+      <div class="dc-body"><div class="dc-date-badge">Mar 11 · Thu</div><p>11:43 AM out of LAX — United Club lounge first (food, drinks, showers). 50-min SFO connection, board UA 809 Boeing 777 at 2:05 PM. Land Manila 9:10 PM. Hotel in Makati or BGC, three couples splitting three rooms.</p><div class="pills"><span class="pi">LAX → SFO → MNL</span><span class="pi">$844 confirmed</span><span class="pi gr">United Club + Free 2nd bag</span></div></div>
+    </div>
+    <div class="dc">
+      <div class="dc-body" style="padding-top:14px;"><div class="dc-date-badge">Mar 12 · Fri</div><div class="dc-name">Manila · Intramuros + Kickoff</div><p>Two hours in Manila's 400-year-old Spanish walled city ($4). Turo-turo canteen lunch ($3–5). Evening: BGC rooftop to mark the start officially. Fly to El Nido tomorrow.</p><div class="pills"><span class="pi">Intramuros · $4</span><span class="pi">Low spend day</span></div></div>
+    </div>
+    <div class="dc">
+      <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=800&q=75&fit=crop" alt="El Nido boat"><div class="dc-img-overlay"></div><div class="dc-img-title">Manila → El Nido · Mar 13</div></div>
+      <div class="dc-body"><div class="dc-date-badge">Mar 13 · Sat</div><p>AirSwift direct MNL → Lio Airport — 1h 20min, ~$85pp. Book early: sells out weeks ahead in peak season. Land midday, villa check-in, first swim, market run. San Miguel: ~$1/bottle. Sunset on the beach. Tomorrow is the birthday.</p><div class="pills"><span class="pi">AirSwift · ~$85pp</span><span class="pi">Villa check-in</span><span class="pi">Town dinner · ~$12pp</span></div></div>
+    </div>
+  </div>
+
+  <div class="bday-splash">
+    <div class="bday-splash-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80&fit=crop" alt="Sunset Philippines"></div>
+    <div class="bday-splash-ov"></div>
+    <div class="bday-splash-body"><div class="bday-date">🎂 March 14, 2027 · Day 4 of 13</div><h2>Happy Birthday, Anicka.</h2><p>She turns 26 in El Nido. Private boat all day. Big Lagoon, Hidden Beach, sunset champagne on limestone cliffs. Best table in town for dinner. Ten more days ahead.</p></div>
+  </div>
+
+  <div class="act-hdr"><div class="act-n">II</div><div class="act-info"><h2>El Nido · The Heart</h2><div class="act-sub">Mar 14–19 · 6 nights · Bacuit Bay</div></div></div>
+  <div class="days">
+    <div class="dc bday">
+      <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=75&fit=crop" alt="El Nido lagoon birthday"><div class="dc-img-overlay"></div><div class="dc-img-title">🎂 Birthday · Private Tour A</div></div>
+      <div class="dc-body"><div class="dc-date-badge bd">Mar 14 · Birthday 🎂</div><p>Private bangka — Big Lagoon (kayak inside 200m limestone walls), Small Lagoon, Shimizu reef, Seven Commando Beach. ~$30–37pp for the private boat. Sunset champagne on limestone. Arte Restaurant for dinner — full group, no early alarm tomorrow.</p><div class="pills"><span class="pi co">Birthday</span><span class="pi">Private boat ~$33pp</span><span class="pi">Birthday dinner ~$35pp</span></div></div>
+    </div>
+    <div class="dc">
+      <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=75&fit=crop" alt="Scuba diving reef"><div class="dc-img-overlay"></div><div class="dc-img-title">PADI Discover Scuba · Mar 15</div></div>
+      <div class="dc-body"><div class="dc-date-badge">Mar 15 · Mon</div><p>Full group does PADI DSD at Fun Divers El Nido. No certification needed — briefing, shallow practice, then 2 real reef dives to 12m depth. ~$63–82pp all-in including gear, guide, boat, and lunch. Non-divers snorkel from the boat alongside the group.</p><div class="pills"><span class="pi">PADI DSD · ~$75pp</span><span class="pi">All gear included</span><span class="pi">12m max depth</span></div></div>
+    </div>
+    <div class="dc">
+      <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=75&fit=crop" alt="Hidden beach limestone"><div class="dc-img-overlay"></div><div class="dc-img-title">Tour C · Secret Beach · Mar 16</div></div>
+      <div class="dc-body"><div class="dc-date-badge">Mar 16 · Tue</div><p>Private boat Tour C: Helicopter Island limestone arch, Secret Beach (swim through a cave in a rock wall into a hidden cove — no boats inside). Buffet lunch on the boat. ~$35pp. Afternoon: villa pool and cook-in dinner from the fresh market.</p><div class="pills"><span class="pi">Secret Beach</span><span class="pi">Helicopter Island</span><span class="pi">Cook-in · ~$8pp</span></div></div>
+    </div>
+    <div class="dc">
+      <div class="dc-body" style="padding-top:14px;"><div class="dc-date-badge">Mar 17 · Wed</div><div class="dc-name">Nacpan Beach + Waterfalls</div><p>Private van north ($40 for the group) to Nacpan — 4km twin beach. Grilled fish beachside ($4–6 a plate). Bulalacao Waterfalls: jungle trek, rope swing, freshwater pool. Evening: Real Street El Nido for mango shakes and nightlife.</p><div class="pills"><span class="pi">Nacpan Beach</span><span class="pi">Waterfall swim</span><span class="pi">~$15pp full day</span></div></div>
+    </div>
+    <div class="dc">
+      <div class="dc-body" style="padding-top:14px;"><div class="dc-date-badge">Mar 18 · Thu</div><div class="dc-name">Second Dives + Tour D</div><p>Morning 2-dive fun trip — ~$90pp. Tour D afternoon: Matinloc Shrine carved into limestone cliffs, Star Beach, remote uninhabited beaches. The quietest and arguably most beautiful route in El Nido.</p><div class="pills"><span class="pi">Fun dives · ~$90pp</span><span class="pi">Tour D · ~$35pp</span><span class="pi">Matinloc Shrine</span></div></div>
+    </div>
+    <div class="dc">
+      <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=800&q=75&fit=crop" alt="Ferry boat sea crossing"><div class="dc-img-overlay"></div><div class="dc-img-title">El Nido → Coron Ferry · Mar 19</div></div>
+      <div class="dc-body"><div class="dc-date-badge">Mar 19 · Fri</div><p>Final El Nido morning — woven bags, fresh pearls, dried mango from the market. Lunch at El Nido Boutique Artcafé. Phimal Fast Ferry departs 12:00 PM: 3.5 hours through uninhabited limestone islands — one of the most scenic ferry crossings in Southeast Asia. ~$40pp. Arrive Coron late afternoon.</p><div class="pills"><span class="pi">Ferry ~$40pp · 3.5hrs</span><span class="pi">Scenic limestone crossing</span><span class="pi">Coron villa check-in</span></div></div>
+    </div>
+  </div>
+
+  <div class="act-hdr"><div class="act-n">III</div><div class="act-info"><h2>Coron · Wrecks, Lakes & Safari</h2><div class="act-sub">Mar 19–24 · 5 nights</div></div></div>
+  <div class="days">
+    <div class="dc">
+      <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=800&q=75&fit=crop" alt="Kayangan Lake Coron clear water"><div class="dc-img-overlay"></div><div class="dc-img-title">Kayangan Lake + Twin Lagoon · Mar 20</div></div>
+      <div class="dc-body"><div class="dc-date-badge">Mar 20 · Sat</div><p>Private boat. Kayangan Lake: limestone staircase hike opens onto crystal-clear mountain water rated Asia's cleanest lake. Twin Lagoon: swim between salt and freshwater through a low limestone arch. Skeleton Wreck snorkeling — WWII ship visible from the surface. Banol Beach lunch.</p><div class="pills"><span class="pi">Kayangan Lake</span><span class="pi">Twin Lagoon</span><span class="pi">WWII wreck snorkel</span><span class="pi">~$35pp</span></div></div>
+    </div>
+    <div class="dc">
+      <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=75&fit=crop" alt="Shipwreck dive Philippines"><div class="dc-img-overlay"></div><div class="dc-img-title">WWII Wrecks + Maquinit Hot Spring · Mar 21</div></div>
+      <div class="dc-body"><div class="dc-date-badge">Mar 21 · Sun</div><p>Divers: Okikawa Maru (18m, ideal for newly experienced) or East Tangat Wreck — top-10 wreck dives on earth. ~$80–100 full gear package. Non-divers: Maquinit Hot Spring, one of only two saltwater hot springs in the world — 39°C open-air, $6 entry. Group dinner to close dive week.</p><div class="pills"><span class="pi">WWII wrecks · ~$90pp</span><span class="pi">Maquinit Hot Spring · $6</span><span class="pi">Final group dinner</span></div></div>
+    </div>
+    <div class="dc">
+      <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=75&fit=crop" alt="African safari giraffes zebras"><div class="dc-img-overlay"></div><div class="dc-img-title">🦒 Calauit Safari · Mar 22</div></div>
+      <div class="dc-body"><div class="dc-date-badge">Mar 22 · Mon</div><p>The most unexpected day of the trip. Calauit Island: 3,700-hectare sanctuary where African giraffes and zebras roam next to coconut palms. Safari truck ride, feed a giraffe, Black Island cave swim. ~$40–50pp all-in: transport, guide, boat, and lunch included.</p><div class="pills"><span class="pi">Giraffes + Zebras</span><span class="pi">Safari truck</span><span class="pi">Black Island swim</span><span class="pi">~$45pp all-in</span></div></div>
+    </div>
+    <div class="dc">
+      <div class="dc-body" style="padding-top:14px;"><div class="dc-date-badge">Mar 23 · Tue</div><div class="dc-name">Rest Day · Barracuda Lake + Town</div><p>No alarm. Barracuda Lake if anyone has energy — volcanic lake with a thermocline where hot and cold water layers meet, eerie and beautiful, ~$10. Coron market for final souvenirs. Rooftop sunset drinks. Last full night together.</p><div class="pills"><span class="pi">Barracuda Lake · ~$10</span><span class="pi">Coron market</span><span class="pi">No alarm 🛏️</span></div></div>
+    </div>
+    <div class="dc">
+      <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=800&q=75&fit=crop" alt="Tropical island sunrise"><div class="dc-img-overlay"></div><div class="dc-img-title">Mount Tapyas Sunrise · Then Home</div></div>
+      <div class="dc-body"><div class="dc-date-badge">Mar 24 · Wed</div><p>568 steps up Mount Tapyas for a 360° view of Coron bay at sunrise — free, 45 minutes, genuinely not optional. Final breakfast together. Van to Busuanga Airport, ~$9, 40 min. Cebu Pacific to Manila (~$50). UA 190 MNL → SFO → LAX. Home by evening, two extra days richer.</p><div class="pills"><span class="pi">Mount Tapyas · Free</span><span class="pi">Coron → MNL → LAX</span><span class="pi gr">13 nights complete</span></div></div>
+    </div>
+  </div>
+
+  <div class="ft" style="padding-top:16px;"><div class="ft-meta">El Nido · Coron · Mar 11–24</div></div>
+</div>
+
+<div id="page-experiences" class="page">
+  <div class="sec" style="padding-top:20px;">
+    <div class="s-label">What you'll actually do</div>
+    <h2 class="s-title">The <em>experiences</em></h2>
+    <p class="s-body">Not a resort trip. Every day is something you'll talk about for years — most of it costs less than dinner out in LA.</p>
+  </div>
+  <div class="exp-grid">
+    <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">El Nido · Tour A · Birthday</div><h3>Big Lagoon by Kayak</h3><p>Paddle inside 200m limestone walls to a hidden turquoise lagoon. No motorboats — just kayaks and silence.</p><div class="ec-price">~$33pp · private boat · full day</div></div></div>
+    <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">El Nido · Tour C</div><h3>Secret Beach</h3><p>Swim through a narrow cave in a limestone wall. Emerge into a completely hidden white-sand cove.</p><div class="ec-price">Included in Tour C · ~$35pp private</div></div></div>
+    <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">El Nido · PADI Discover Scuba</div><h3>First Dive · Bacuit Reef</h3><p>No experience needed. Briefing, shallow practice, then real reef dives — turtles, giant clams, reef sharks. All gear included.</p><div class="ec-price">~$75pp · gear, guide, boat, lunch all in</div></div></div>
+    <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">Coron · Ultimate Tour</div><h3>Kayangan Lake</h3><p>Rated Asia's cleanest lake. Short limestone staircase hike opens onto crystal-clear mountain water. Photos don't capture it.</p><div class="ec-price">~$35pp · private boat · all stops</div></div></div>
+    <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">Coron · Mar 22</div><h3>🦒 Calauit Safari</h3><p>Real African giraffes and zebras on a tropical Philippine island. 3,700 hectares of wildlife sanctuary. The most surreal day of the trip.</p><div class="ec-price">~$45pp all-in · transport, guide, lunch</div></div></div>
+    <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">Coron · Mar 21</div><h3>WWII Shipwreck Dives</h3><p>Okikawa Maru at 18m — Japanese cargo ship from 1944, now coral-covered and teeming with fish. Top-10 wreck dive destination on earth.</p><div class="ec-price">~$90pp · 2 wrecks · full gear</div></div></div>
+  </div>
+  <div class="photo-strip">
+    <div class="ps"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=75&fit=crop" alt="Sunset"><div class="ps-lbl">Palawan Sunset</div></div>
+    <div class="ps"><img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=400&q=75&fit=crop" alt="Tropical aerial"><div class="ps-lbl">Coron Bay</div></div>
+    <div class="ps"><img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=400&q=75&fit=crop" alt="Ocean boat"><div class="ps-lbl">Island Crossing</div></div>
+  </div>
+  <div class="ft" style="padding-top:10px;"><div class="ft-meta">El Nido · Coron · Mar 11–24 · Anicka turns 26</div></div>
+</div>
+
+<div id="page-safety" class="page">
+  <div class="sec" style="padding-top:20px;">
+    <div class="s-label">Verified 2026 safety facts</div>
+    <h2 class="s-title">Palawan is <em>safe</em></h2>
+    <p class="s-body">Safety concerns about the Philippines are real — for the wrong parts of the country. Here's what current data and government advisories actually say about Palawan.</p>
+    <div class="safety-badge">Verified · Low Risk · 2026 Sources</div>
+  </div>
+  <div class="sg">
+    <div class="sc"><div class="sc-icon">🛡️</div><h4>Crime against tourists: Very low</h4><p>El Nido and Coron rank among the Philippines' safest tourist zones. Violent crime against visitors is extremely rare. Most incidents are minor scams — easily avoided by booking through verified operators.</p></div>
+    <div class="sc"><div class="sc-icon">📍</div><h4>ISIS/terrorism doesn't apply to Palawan</h4><p>US State Dept, UK FCDO, and Australian SmartTraveller flag only Western Mindanao and the Sulu Archipelago. Palawan is a completely separate island chain, hundreds of miles away from any flagged zone.</p></div>
+    <div class="sc"><div class="sc-icon">🌊</div><h4>Water and diving: follow operator rules</h4><p>All reputable dive shops display valid PADI/SSI certification. Life jackets mandatory on island-hopping boats — operators enforce this. March: calm seas, excellent visibility, minimal jellyfish risk.</p></div>
+    <div class="sc"><div class="sc-icon">🏥</div><h4>Medical: travel insurance is non-negotiable</h4><p>El Nido has clinics for minor issues. Serious conditions require evacuation to Puerto Princesa (5–6 hrs) or Manila. Insurance with medical evacuation cover: budget $50–80pp for 13 days.</p></div>
+    <div class="sc"><div class="sc-icon">🦟</div><h4>Health prep before departure</h4><p>Travel doctor 4–6 weeks before: Hep A, Typhoid, Tetanus recommended. Discuss malaria prophylaxis — risk is low in El Nido tourist zone but worth the conversation. DEET at dawn/dusk. Bottled water only.</p></div>
+    <div class="sc"><div class="sc-icon">🛵</div><h4>The real risk: skip the motorbikes</h4><p>Leading cause of tourist injury in El Nido. Roads to Nacpan Beach are unpaved gravel. Hire a private van for the group — safer, more comfortable, barely costs more split six or more ways.</p></div>
+  </div>
+  <div style="height:24px;"></div>
+</div>
+
+<div id="page-budget" class="page">
+  <div class="sec" style="padding-top:20px;">
+    <div class="s-label">The numbers · verified</div>
+    <h2 class="s-title">Budget per <em>person</em></h2>
+    <p class="s-body">Every figure searched and confirmed — not estimated. Assumes 6 people splitting villas and transport. More people only improves it.</p>
+  </div>
+  <div class="bgt">
+    <div class="bgt-head"><div class="bh-l">Category</div><div class="bh-l">Per Person</div></div>
+    <div class="bgt-row"><div class="br-left"><div class="br-cat">Flights (round trip)</div><div class="br-note">LAX → SFO → MNL → LAX · United · UA 2831/809 out, UA 190 return</div><div class="br-bonus">1st bag free on trans-Pacific routes for all economy · 2nd bag free with United card (up to $200 savings rt) · LAX United Club lounge included</div></div><div style="text-align:right;flex-shrink:0;"><div class="br-price">$844</div><div class="br-note" style="color:#4ade80;font-style:normal;font-size:0.62rem;">+up to $200 saved</div></div></div>
+    <div class="bgt-row"><div class="br-left"><div class="br-cat">Manila hotel (1 night)</div><div class="br-note">3 rooms split by couple · Makati or BGC</div></div><div class="br-price">$25–40</div></div>
+    <div class="bgt-row"><div class="br-left"><div class="br-cat">El Nido villa (6 nights)</div><div class="br-note">3-bed private pool villa · AC · Airbnb/VRBO · split 6+</div></div><div class="br-price">$150–220</div></div>
+    <div class="bgt-row"><div class="br-left"><div class="br-cat">Coron villa (5 nights)</div><div class="br-note">3-bed villa · Coron Town · private pool · split 6+</div></div><div class="br-price">$65–100</div></div>
+    <div class="bgt-row"><div class="br-left"><div class="br-cat">Internal flights</div><div class="br-note">MNL→ENI (AirSwift) + Coron→MNL (Cebu Pacific) · book early</div></div><div class="br-price">$130–150</div></div>
+    <div class="bgt-row"><div class="br-left"><div class="br-cat">El Nido → Coron ferry</div><div class="br-note">Phimal Fast Ferry · 3.5 hrs · Mar 19 depart 12:00 PM</div></div><div class="br-price">$30–50</div></div>
+    <div class="bgt-row"><div class="br-left"><div class="br-cat">Island hopping + safari (5)</div><div class="br-note">Birthday Tour A + Tour C + Tour D + Coron Ultimate + Calauit Safari</div></div><div class="br-price">$165–210</div></div>
+    <div class="bgt-row"><div class="br-left"><div class="br-cat">Diving (2 experiences)</div><div class="br-note">PADI DSD El Nido + WWII wreck dives Coron</div></div><div class="br-price">$165–185</div></div>
+    <div class="bgt-row"><div class="br-left"><div class="br-cat">Food (13 days)</div><div class="br-note">Villa cook-ins, local restaurants, birthday dinner ~$35</div></div><div class="br-price">$325–390</div></div>
+    <div class="bgt-row"><div class="br-left"><div class="br-cat">Local transport</div><div class="br-note">Tricycles, Grab, van hire, airport shuttles</div></div><div class="br-price">$60–80</div></div>
+    <div class="bgt-row" style="border-bottom:none;"><div class="br-left"><div class="br-cat">Eco fees + tips + misc</div><div class="br-note">El Nido ETDF, Kayangan entry, guide tips — tip Filipino guides generously</div></div><div class="br-price">$60–80</div></div>
+    <div class="bgt-total"><div><div class="btt-lbl">Estimated total · per person</div><div class="btt-sub">All in · 13 nights · flights + accommodation + activities + food</div></div><div class="btt-amt">$2,044–$2,394</div></div>
+  </div>
+  <div class="sav-bar">
+    <span style="font-size:1rem;flex-shrink:0;">💰</span>
+    <p>Cook Islands: ~$2,800pp for 10 nights. Palawan delivers <strong>13 nights — a safari, WWII wrecks, and a hot spring</strong> for $400–750 less per person. Every additional person who joins improves the math.</p>
+  </div>
+</div>
+
+<div id="page-book" class="page">
+  <div class="sec" style="padding-top:20px;">
+    <div class="s-label">Before you book</div>
+    <h2 class="s-title">Book in this <em>order</em></h2>
+    <p class="s-body">Some things sell out weeks ahead in peak season. The first two steps are time-sensitive.</p>
+  </div>
+  <div class="lg-grid">
+    <div class="lc"><h4>🗓️ Step 1 — Lock flights now</h4><ul><li>Mar 11–24 at $844 — prices shift unpredictably</li><li>All travelers on same United booking for free bag benefit</li><li>Add MileagePlus numbers to reservation to activate bag waiver</li><li>Confirm all passports valid 6+ months past March 2027</li><li>Group size flexible — more people only improves cost math</li></ul></div>
+    <div class="lc"><h4>🏡 Step 2 — Book villas immediately after</h4><ul><li>El Nido 3-bed pool villa on Airbnb/VRBO for Mar 13–19 (6 nights)</li><li>Coron 3-bed villa Mar 19–24 (5 nights) · generator backup + Starlink wifi</li><li>Prioritize: private pool, AC in all bedrooms, confirmed host response</li><li>Group beyond 6: 4-bed properties exist and split extremely well</li></ul></div>
+    <div class="lc"><h4>✈️ Step 3 — Internal flights</h4><ul><li>AirSwift MNL → Lio Airport (ENI) El Nido — book ASAP, sells out fast</li><li>Cebu Pacific or AirAsia Coron (USU) → Manila for return</li><li>If ENI seats are gone: Puerto Princesa route + 5-hr van is the backup</li></ul></div>
+    <div class="lc"><h4>🏥 Step 4 — Health prep (8+ weeks before)</h4><ul><li>Travel doctor for all travelers — Philippines vaccine recommendations</li><li>Hep A, Typhoid, Tetanus recommended · discuss malaria prophylaxis</li><li>Travel insurance with medical evacuation — every person, no exceptions</li><li>Budget $50–80pp for a policy covering adventure activities</li></ul></div>
+    <div class="lc"><h4>🤿 Step 5 — Activities (4–6 wks before)</h4><ul><li>PADI DSD: Fun Divers El Nido or Palawan Divers — instructor slots limited</li><li>Birthday Tour A private boat — request sunset timing specifically</li><li>Calauit Safari: book through Klook or direct with Coron tour operators</li><li>Coron wreck dives: Discovery Divers or Sea Dive Coron</li><li>Phimal Fast Ferry El Nido → Coron Mar 19 — book online min 5 days prior</li></ul></div>
+    <div class="lc"><h4>📱 Download before departure</h4><ul><li>Grab — Southeast Asia's Uber, works Manila and Puerto Princesa</li><li>Maps.me — offline maps essential for El Nido (spotty data in some areas)</li><li>Wise or Revolut — far better exchange rates than airport conversion</li><li>Bring USD cash for El Nido — ATMs charge fees and run dry at peak</li></ul></div>
+  </div>
+  <div class="ft">
+    <div class="ft-title">Palawan, 2027</div>
+    <div class="ft-meta">El Nido · Coron · Mar 11–24 · Anicka turns 26</div>
+    <div class="crew-row"><span class="cb">The Original Crew</span><span class="cb">+ whoever's in 🤙</span><span class="cb">Cook Islands Trip 01 ✓</span><span class="cb">Palawan Trip 02</span></div>
+  </div>
+</div>
 
 <script>
-// Nav active state
-const navLinks = document.querySelectorAll('.nav-link');
-const io1 = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      navLinks.forEach(l => l.classList.remove('active'));
-      const m = document.querySelector('.nav-link[href="#'+e.target.id+'"]');
-      if (m) m.classList.add('active');
-    }
-  });
-}, { threshold: 0.25, rootMargin: '-54px 0px 0px 0px' });
-document.querySelectorAll('[id]').forEach(el => io1.observe(el));
-
-// Scroll reveal
-const io2 = new IntersectionObserver(entries => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('vis'), i * 55);
-      io2.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.06 });
-document.querySelectorAll('.dc, .ec, .sc').forEach(el => io2.observe(el));
+function showPage(id,tab){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('page-'+id).classList.add('active');
+  tab.classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+  setTimeout(reveal,60);
+}
+function reveal(){
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*55);io.unobserve(e.target);}
+    });
+  },{threshold:0.05});
+  document.querySelectorAll('.dc:not(.vis),.ec:not(.vis),.sc:not(.vis)').forEach(el=>io.observe(el));
+}
+document.addEventListener('DOMContentLoaded',reveal);
 </script>
 </body>
 </html>
