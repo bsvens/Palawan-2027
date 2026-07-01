@@ -30,7 +30,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 #splash.exit{opacity:0;transform:scale(1.04);}
 #splash-bg{
   position:absolute;inset:0;
-  background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1400&q=90&fit=crop') center/cover no-repeat;
+  background:url('https://images.unsplash.com/photo-5DJogaWEUH4?w=1400&q=90&fit=crop') center/cover no-repeat;
   animation:ocean-drift 18s ease-in-out infinite alternate;
   transform-origin:center;
 }
@@ -120,7 +120,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 #tap-btn{
   margin-top:8px;
   display:flex;flex-direction:column;align-items:center;gap:10px;
-  opacity:0;animation:rise 0.8s ease 1.6s forwards;
+  opacity:0;animation:rise 0.8s ease 1.8s forwards;
   cursor:pointer;
   -webkit-user-select:none;user-select:none;
 }
@@ -433,6 +433,36 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 .ft-meta{font-family:'Space Mono',monospace;font-size:0.48rem;letter-spacing:0.17em;color:rgba(255,255,255,0.14);text-transform:uppercase;}
 .crew-row{display:flex;gap:5px;flex-wrap:wrap;justify-content:center;margin-top:11px;}
 .cb{font-family:'Space Mono',monospace;font-size:0.42rem;letter-spacing:0.06em;padding:4px 9px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:100px;color:rgba(255,255,255,0.18);}
+
+/* SPLASH TEASER */
+.splash-teaser{
+  display:flex;align-items:center;gap:0;
+  margin:4px 0 16px;
+  opacity:0;animation:rise 0.8s ease 1.2s forwards;
+}
+.st-item{flex:1;text-align:center;padding:0 6px;}
+.st-n{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.6rem;font-weight:300;line-height:1;
+  color:var(--teal2);
+  text-shadow:0 0 16px rgba(5,232,216,0.4);
+}
+.st-l{font-family:'Space Mono',monospace;font-size:0.44rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;}
+.st-divider{width:1px;height:36px;background:rgba(255,255,255,0.1);flex-shrink:0;}
+.splash-pills{
+  display:flex;gap:5px;flex-wrap:wrap;justify-content:center;
+  margin-bottom:20px;
+  opacity:0;animation:rise 0.8s ease 1.4s forwards;
+}
+.sp{
+  font-family:'Space Mono',monospace;font-size:0.48rem;
+  letter-spacing:0.07em;text-transform:uppercase;
+  padding:4px 10px;
+  border:1px solid rgba(15,184,212,0.35);
+  border-radius:100px;color:var(--teal);
+  background:rgba(15,184,212,0.07);
+}
+.sp.bd{border-color:rgba(255,92,62,0.35);color:#ff8066;background:rgba(255,92,62,0.07);}
 </style>
 </head>
 <body>
@@ -450,15 +480,42 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
   </div>
   <div id="splash-grad"></div>
   <div id="splash-content">
-    <div class="s-eyebrow">Cook Islands Crew · Trip 02</div>
-    <h1 class="s-headline">March<br><em>2027</em></h1>
-    <div class="s-sub">Something is waiting for you.</div>
+    <div class="s-eyebrow">March 2027 · 13 nights · Palawan</div>
+    <h1 class="s-headline">Palawan,<br><em>Philippines</em></h1>
+    <div class="s-sub">13 nights · El Nido · Coron · Mar 11–24</div>
     <div class="breeze-line"></div>
+
+    <!-- TEASER STATS -->
+    <div class="splash-teaser">
+      <div class="st-item">
+        <div class="st-n">~$2,044</div>
+        <div class="st-l">All-in · per person</div>
+      </div>
+      <div class="st-divider"></div>
+      <div class="st-item">
+        <div class="st-n">13</div>
+        <div class="st-l">Nights in paradise</div>
+      </div>
+      <div class="st-divider"></div>
+      <div class="st-item">
+        <div class="st-n">6</div>
+        <div class="st-l">Bucket-list experiences</div>
+      </div>
+    </div>
+
+    <!-- ACTIVITY GLIMPSE PILLS -->
+    <div class="splash-pills">
+      <span class="sp">🌊 Hidden Lagoons</span>
+      <span class="sp">🤿 WWII Wrecks</span>
+      <span class="sp">🦒 Safari</span>
+      <span class="sp bd">🎂 Anicka turns 26</span>
+    </div>
+
     <div id="tap-btn" onclick="revealMain()">
       <div class="tap-ring">
         <div class="tap-icon">🌊</div>
       </div>
-      <div class="tap-label">Tap to open</div>
+      <div class="tap-label">Tap to reveal</div>
     </div>
   </div>
 </div>
@@ -495,12 +552,12 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 
     <!-- CINEMATIC HERO — stepping through the villa door -->
     <div class="reveal-hero">
-      <div class="rh-bg"><img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=1400&q=90&fit=crop" alt="El Nido Palawan turquoise lagoon"></div>
+      <div class="rh-bg"><img src="https://images.unsplash.com/photo-qzgmZKsyVsQ?w=1400&q=90&fit=crop" alt="El Nido Palawan turquoise lagoon"></div>
       <div class="rh-door-l"></div><div class="rh-door-r"></div><div class="rh-door-t"></div>
       <div class="rh-grad"></div>
       <div class="rh-shimmer"></div>
       <div class="rh-body">
-        <div class="rh-eyebrow">Cook Islands Crew · Trip 02 · March 2027</div>
+        <div class="rh-eyebrow">March 2027 · 13 nights · Palawan</div>
         <h2 class="rh-title">Palawan,<br><em>Philippines</em></h2>
         <div class="rh-sub">El Nido · Coron · 13 nights · Mar 11–24</div>
         <div class="rh-pills">
@@ -524,32 +581,32 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
     <div class="hscroll-wrap">
       <div class="hscroll">
         <div class="hcard">
-          <div class="hcard-bg" style="background:url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=600&q=80&fit=crop') center/cover;"></div>
+          <div class="hcard-bg" style="background:url('https://images.unsplash.com/photo-qzgmZKsyVsQ?w=600&q=80&fit=crop') center/cover;"></div>
           <div class="hcard-grad"></div>
           <div class="hcard-body"><div class="hcard-tag">El Nido · Birthday</div><h3>Big Lagoon by Kayak</h3><p>Paddle inside 200m limestone walls into a hidden turquoise lagoon. No motorboats allowed inside.</p><div class="hcard-price">~$33pp · private boat</div></div>
         </div>
         <div class="hcard">
-          <div class="hcard-bg" style="background:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&fit=crop') center/cover;"></div>
+          <div class="hcard-bg" style="background:url('https://images.unsplash.com/photo-5DJogaWEUH4?w=600&q=80&fit=crop') center/cover;"></div>
           <div class="hcard-grad"></div>
           <div class="hcard-body"><div class="hcard-tag">El Nido · Tour C</div><h3>Secret Beach</h3><p>Swim through a cave in a rock wall. Emerge into a completely hidden white-sand cove.</p><div class="hcard-price">Included · ~$35pp private</div></div>
         </div>
         <div class="hcard">
-          <div class="hcard-bg" style="background:url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80&fit=crop') center/cover;"></div>
+          <div class="hcard-bg" style="background:url('https://images.unsplash.com/photo-FXJf8y_cZA0?w=600&q=80&fit=crop') center/cover;"></div>
           <div class="hcard-grad"></div>
           <div class="hcard-body"><div class="hcard-tag">El Nido · PADI DSD</div><h3>First Dive · Bacuit Reef</h3><p>No experience needed. Real reef dives on day two — sea turtles, giant clams, reef sharks.</p><div class="hcard-price">~$75pp · gear, guide, lunch all in</div></div>
         </div>
         <div class="hcard">
-          <div class="hcard-bg" style="background:url('https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=600&q=80&fit=crop') center/cover;"></div>
+          <div class="hcard-bg" style="background:url('https://images.unsplash.com/photo-dxylfBs2Xzc?w=600&q=80&fit=crop') center/cover;"></div>
           <div class="hcard-grad"></div>
           <div class="hcard-body"><div class="hcard-tag">Coron · Ultimate Tour</div><h3>Kayangan Lake</h3><p>Rated Asia's cleanest lake. A limestone staircase hike opens onto crystal-clear mountain water.</p><div class="hcard-price">~$35pp · private boat</div></div>
         </div>
         <div class="hcard">
-          <div class="hcard-bg" style="background:url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&q=80&fit=crop') center/cover;"></div>
+          <div class="hcard-bg" style="background:url('https://images.unsplash.com/photo-0xzjOzPC5yM?w=600&q=80&fit=crop') center/cover;"></div>
           <div class="hcard-grad"></div>
           <div class="hcard-body"><div class="hcard-tag">Coron · Mar 22</div><h3>🦒 Calauit Safari</h3><p>Real African giraffes and zebras roaming next to coconut palms on a tropical Philippine island.</p><div class="hcard-price">~$45pp all-in · guided</div></div>
         </div>
         <div class="hcard">
-          <div class="hcard-bg" style="background:url('https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=600&q=80&fit=crop') center/cover;"></div>
+          <div class="hcard-bg" style="background:url('https://images.unsplash.com/photo-Tm0XygW6gN8?w=600&q=80&fit=crop') center/cover;"></div>
           <div class="hcard-grad"></div>
           <div class="hcard-body"><div class="hcard-tag">Coron · Mar 21</div><h3>WWII Shipwreck Dives</h3><p>Okikawa Maru at 18m — 1944 Japanese cargo ship, now covered in coral. Top-10 wreck site on earth.</p><div class="hcard-price">~$90pp · 2 wrecks</div></div>
         </div>
@@ -567,7 +624,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
         <div class="bb-divider"></div>
         <div class="bb-compare">
           <div class="bb-compare-item"><div class="bc-num" style="color:var(--teal2);">$844</div><div class="bc-lbl">Round trip flights</div></div>
-          <div class="bb-compare-item"><div class="bc-num" style="color:var(--sand);">$2.8k</div><div class="bc-lbl">Cook Islands was</div></div>
+          <div class="bb-compare-item"><div class="bc-num" style="color:var(--sand);">$200</div><div class="bc-lbl">Saved on 2nd bags</div></div>
           <div class="bb-compare-item"><div class="bc-num" style="color:#4ade80;">13</div><div class="bc-lbl">nights in paradise</div></div>
         </div>
         <div class="bb-savings">
@@ -579,30 +636,12 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
 
     <!-- FULL BLEED -->
     <div class="full-bleed">
-      <img src="https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=1200&q=85&fit=crop" alt="El Nido Philippines limestone cliffs ocean">
+      <img src="https://images.unsplash.com/photo-Tm0XygW6gN8?w=1200&q=85&fit=crop" alt="El Nido Philippines limestone cliffs ocean">
       <div class="fb-label"><div class="fb-label-text">Bacuit Bay, El Nido</div></div>
       <div class="fb-cap">Palawan · Philippines</div>
     </div>
 
-    <!-- COOKS TRIBUTE -->
-    <div class="sec" style="padding-top:0;">
-      <div class="s-label">From Cook Islands to Palawan</div>
-      <h2 class="s-title">Same crew. <em>Bigger water.</em></h2>
-      <p class="s-body">Trip one set the blueprint. Trip two drops it into the most beautiful island chain in Southeast Asia. Open to the right people who want in.</p>
-    </div>
-    <div class="card cooks-card">
-      <div class="cooks-img"><img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=800&q=80&fit=crop" alt="Tropical paradise aerial"></div>
-      <div class="cooks-body">
-        <div class="lbl">The Playbook · Proven</div>
-        <h2>It <em>worked</em> once.</h2>
-        <p>Private villa, costs split by the group, experiences over amenities. Cook Islands delivered. Palawan doubles down — more adventure, lower daily costs, more nights for less money.</p>
-        <div class="cooks-stats">
-          <div class="cs"><div class="n">$2.8k</div><div class="l">Cook Islands pp</div></div>
-          <div class="cs"><div class="n">~$2k</div><div class="l">Palawan pp</div></div>
-          <div class="cs"><div class="n">13</div><div class="l">nights</div></div>
-        </div>
-      </div>
-    </div>
+    
 
     <!-- THAILAND VS -->
     <div class="sec">
@@ -638,7 +677,7 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
       <div class="ft-meta">El Nido · Coron · Mar 11–24 · Anicka turns 26</div>
       <div class="crew-row">
         <span class="cb">The Original Crew</span><span class="cb">+ whoever's in 🤙</span>
-        <span class="cb">Cook Islands Trip 01 ✓</span><span class="cb">Palawan Trip 02</span>
+        <span class="cb">Palawan Trip 02</span>
       </div>
     </div>
   </div>
@@ -653,34 +692,34 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
     <div class="act-hdr"><div class="act-n">I</div><div class="act-info"><h2>The Arrival · Manila</h2><div class="act-sub">Mar 11–13 · Transit nights</div></div></div>
     <div class="days">
       <div class="dc">
-        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=75&fit=crop" alt="Manila"><div class="dc-img-overlay"></div><div class="dc-img-title">Depart LAX · Mar 11</div></div>
+        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-qzgmZKsyVsQ?w=800&q=75&fit=crop" alt="Manila"><div class="dc-img-overlay"></div><div class="dc-img-title">Depart LAX · Mar 11</div></div>
         <div class="dc-body"><div class="dc-badge">Mar 11 · Thu</div><p>11:43 AM out of LAX — United Club lounge first. 50-min SFO connection, board UA 809 Boeing 777 at 2:05 PM. Land Manila 9:10 PM. Hotel in Makati or BGC, three couples splitting three rooms.</p><div class="pills"><span class="pi">LAX → SFO → MNL</span><span class="pi">$844 confirmed</span><span class="pi gr">United Club + Free 2nd bag</span></div></div>
       </div>
       <div class="dc">
         <div class="dc-body" style="padding-top:14px;"><div class="dc-badge">Mar 12 · Fri</div><div class="dc-name">Manila · Intramuros + Kickoff</div><p>Two hours in Manila's 400-year-old Spanish walled city ($4). Turo-turo canteen lunch ($3–5). BGC rooftop to mark the start officially.</p><div class="pills"><span class="pi">Intramuros · $4</span><span class="pi">Low spend day</span></div></div>
       </div>
       <div class="dc">
-        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=800&q=75&fit=crop" alt="El Nido"><div class="dc-img-overlay"></div><div class="dc-img-title">Manila → El Nido · Mar 13</div></div>
+        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-Tm0XygW6gN8?w=800&q=75&fit=crop" alt="El Nido"><div class="dc-img-overlay"></div><div class="dc-img-title">Manila → El Nido · Mar 13</div></div>
         <div class="dc-body"><div class="dc-badge">Mar 13 · Sat</div><p>AirSwift direct MNL → Lio Airport (El Nido) — 1h 20min, ~$85pp. Book early: sells out weeks ahead. Land midday, villa check-in, first swim. San Miguel: ~$1/bottle. Sunset on the beach. Tomorrow is the birthday.</p><div class="pills"><span class="pi">AirSwift · ~$85pp</span><span class="pi">Villa check-in</span><span class="pi">Town dinner · ~$12pp</span></div></div>
       </div>
     </div>
     <div class="bday-splash">
-      <div class="bday-splash-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80&fit=crop" alt="Philippines sunset"></div>
+      <div class="bday-splash-img"><img src="https://images.unsplash.com/photo-GoBpd_yNX3s?w=800&q=80&fit=crop" alt="Philippines sunset"></div>
       <div class="bday-splash-ov"></div>
       <div class="bday-splash-body"><div class="bday-date">🎂 March 14, 2027 · Day 4 of 13</div><h2>Happy Birthday, Anicka.</h2><p>She turns 26 in El Nido. Private boat all day. Big Lagoon, Hidden Beach, sunset champagne on limestone. Ten more days ahead.</p></div>
     </div>
     <div class="act-hdr"><div class="act-n">II</div><div class="act-info"><h2>El Nido · The Heart</h2><div class="act-sub">Mar 14–19 · 6 nights · Bacuit Bay</div></div></div>
     <div class="days">
       <div class="dc bday">
-        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=75&fit=crop" alt="Big Lagoon birthday"><div class="dc-img-overlay"></div><div class="dc-img-title">🎂 Birthday · Private Tour A</div></div>
+        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-qzgmZKsyVsQ?w=800&q=75&fit=crop" alt="Big Lagoon birthday"><div class="dc-img-overlay"></div><div class="dc-img-title">🎂 Birthday · Private Tour A</div></div>
         <div class="dc-body"><div class="dc-badge bd">Mar 14 · Birthday 🎂</div><p>Private bangka — Big Lagoon (kayak inside 200m limestone walls), Small Lagoon, Shimizu reef, Seven Commando Beach. ~$30–37pp. Sunset champagne on the cliffs. Arte Restaurant for dinner — no early alarm tomorrow.</p><div class="pills"><span class="pi co">Birthday</span><span class="pi">Private boat ~$33pp</span><span class="pi">Birthday dinner ~$35pp</span></div></div>
       </div>
       <div class="dc">
-        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=75&fit=crop" alt="Reef diving"><div class="dc-img-overlay"></div><div class="dc-img-title">PADI Discover Scuba · Mar 15</div></div>
+        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-ynPnG_lDg2E?w=800&q=75&fit=crop" alt="Reef diving"><div class="dc-img-overlay"></div><div class="dc-img-title">PADI Discover Scuba · Mar 15</div></div>
         <div class="dc-body"><div class="dc-badge">Mar 15 · Mon</div><p>Full group does PADI DSD — no certification needed. Briefing, confined practice, 2 real reef dives to 12m. ~$63–82pp including gear, guide, boat, and lunch. Non-divers snorkel from the boat alongside.</p><div class="pills"><span class="pi">PADI DSD · ~$75pp</span><span class="pi">All gear included</span><span class="pi">12m max depth</span></div></div>
       </div>
       <div class="dc">
-        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=75&fit=crop" alt="Secret beach"><div class="dc-img-overlay"></div><div class="dc-img-title">Tour C · Secret Beach · Mar 16</div></div>
+        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-5DJogaWEUH4?w=800&q=75&fit=crop" alt="Secret beach"><div class="dc-img-overlay"></div><div class="dc-img-title">Tour C · Secret Beach · Mar 16</div></div>
         <div class="dc-body"><div class="dc-badge">Mar 16 · Tue</div><p>Helicopter Island limestone arch, Secret Beach (swim through a rock wall cave into a hidden cove). Buffet lunch on the boat. ~$35pp. Afternoon: villa pool, group cook-in dinner from the fresh market.</p><div class="pills"><span class="pi">Secret Beach</span><span class="pi">Helicopter Island</span><span class="pi">Cook-in · ~$8pp</span></div></div>
       </div>
       <div class="dc">
@@ -690,29 +729,29 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
         <div class="dc-body" style="padding-top:14px;"><div class="dc-badge">Mar 18 · Thu</div><div class="dc-name">Second Dives + Tour D</div><p>Morning 2-dive fun trip — ~$90pp. Tour D afternoon: Matinloc Shrine carved into limestone cliffs, Star Beach, remote uninhabited beaches. Quieter than A/C but arguably more beautiful.</p><div class="pills"><span class="pi">Fun dives · ~$90pp</span><span class="pi">Tour D · ~$35pp</span><span class="pi">Matinloc Shrine</span></div></div>
       </div>
       <div class="dc">
-        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=800&q=75&fit=crop" alt="Ferry crossing"><div class="dc-img-overlay"></div><div class="dc-img-title">El Nido → Coron Ferry · Mar 19</div></div>
+        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-dxylfBs2Xzc?w=800&q=75&fit=crop" alt="Ferry crossing"><div class="dc-img-overlay"></div><div class="dc-img-title">El Nido → Coron Ferry · Mar 19</div></div>
         <div class="dc-body"><div class="dc-badge">Mar 19 · Fri</div><p>Market souvenir run, lunch at El Nido Boutique Artcafé. Phimal Fast Ferry departs 12:00 PM — 3.5 hours through uninhabited limestone islands, one of Southeast Asia's most scenic crossings. ~$40pp. Arrive Coron late afternoon.</p><div class="pills"><span class="pi">Ferry ~$40pp · 3.5hrs</span><span class="pi">Scenic limestone crossing</span><span class="pi">Coron villa check-in</span></div></div>
       </div>
     </div>
     <div class="act-hdr"><div class="act-n">III</div><div class="act-info"><h2>Coron · Wrecks, Lakes & Safari</h2><div class="act-sub">Mar 19–24 · 5 nights</div></div></div>
     <div class="days">
       <div class="dc">
-        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=800&q=75&fit=crop" alt="Kayangan Lake"><div class="dc-img-overlay"></div><div class="dc-img-title">Kayangan Lake + Twin Lagoon · Mar 20</div></div>
+        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-dxylfBs2Xzc?w=800&q=75&fit=crop" alt="Kayangan Lake"><div class="dc-img-overlay"></div><div class="dc-img-title">Kayangan Lake + Twin Lagoon · Mar 20</div></div>
         <div class="dc-body"><div class="dc-badge">Mar 20 · Sat</div><p>Private boat. Kayangan Lake: limestone staircase hike to crystal-clear water rated Asia's cleanest. Twin Lagoon: swim between salt and freshwater through a low rock arch. Skeleton Wreck snorkeling. Banol Beach lunch.</p><div class="pills"><span class="pi">Kayangan Lake</span><span class="pi">Twin Lagoon</span><span class="pi">WWII snorkel</span><span class="pi">~$35pp</span></div></div>
       </div>
       <div class="dc">
-        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=75&fit=crop" alt="Shipwreck dive"><div class="dc-img-overlay"></div><div class="dc-img-title">WWII Wrecks + Maquinit Hot Spring · Mar 21</div></div>
+        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-ynPnG_lDg2E?w=800&q=75&fit=crop" alt="Shipwreck dive"><div class="dc-img-overlay"></div><div class="dc-img-title">WWII Wrecks + Maquinit Hot Spring · Mar 21</div></div>
         <div class="dc-body"><div class="dc-badge">Mar 21 · Sun</div><p>Divers: Okikawa Maru (18m) or East Tangat Wreck — top-10 wreck dives on earth, ~$80–100 full gear. Non-divers: Maquinit Hot Spring, one of only two saltwater hot springs in the world, 39°C, $6 entry. Group dinner.</p><div class="pills"><span class="pi">WWII wrecks · ~$90pp</span><span class="pi">Maquinit Hot Spring · $6</span><span class="pi">Group dinner</span></div></div>
       </div>
       <div class="dc">
-        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=75&fit=crop" alt="Safari giraffes zebras"><div class="dc-img-overlay"></div><div class="dc-img-title">🦒 Calauit Safari · Mar 22</div></div>
+        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-0xzjOzPC5yM?w=800&q=75&fit=crop" alt="Safari giraffes zebras"><div class="dc-img-overlay"></div><div class="dc-img-title">🦒 Calauit Safari · Mar 22</div></div>
         <div class="dc-body"><div class="dc-badge">Mar 22 · Mon</div><p>African giraffes and zebras roaming next to coconut palms on a 3,700-hectare island sanctuary. Safari truck ride, feed a giraffe, Black Island cave swim. ~$40–50pp all-in: transport, guide, boat, and lunch.</p><div class="pills"><span class="pi">Giraffes + Zebras</span><span class="pi">Safari truck</span><span class="pi">Black Island swim</span><span class="pi">~$45pp all-in</span></div></div>
       </div>
       <div class="dc">
         <div class="dc-body" style="padding-top:14px;"><div class="dc-badge">Mar 23 · Tue</div><div class="dc-name">Rest Day · Barracuda Lake + Town</div><p>No alarm. Barracuda Lake optional — volcanic lake with a thermocline where hot and cold water layers meet, ~$10. Coron market for final souvenirs. Rooftop sunset drinks. Last full night together.</p><div class="pills"><span class="pi">Barracuda Lake · ~$10</span><span class="pi">Coron market</span><span class="pi">No alarm 🛏️</span></div></div>
       </div>
       <div class="dc">
-        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=800&q=75&fit=crop" alt="Sunrise tropical island"><div class="dc-img-overlay"></div><div class="dc-img-title">Mount Tapyas Sunrise · Then Home</div></div>
+        <div class="dc-img-full"><img src="https://images.unsplash.com/photo-GoBpd_yNX3s?w=800&q=75&fit=crop" alt="Sunrise tropical island"><div class="dc-img-overlay"></div><div class="dc-img-title">Mount Tapyas Sunrise · Then Home</div></div>
         <div class="dc-body"><div class="dc-badge">Mar 24 · Wed</div><p>568 steps up Mount Tapyas for a 360° view of Coron bay at sunrise — free, 45 minutes, not optional. Final breakfast together. Van to Busuanga Airport, ~$9. Cebu Pacific to Manila (~$50). UA 190 MNL → SFO → LAX. Home by evening.</p><div class="pills"><span class="pi">Mount Tapyas · Free</span><span class="pi">Coron → MNL → LAX</span><span class="pi gr">13 nights complete</span></div></div>
       </div>
     </div>
@@ -727,17 +766,17 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
       <p class="s-body">Not a resort trip. Every day is something you'll talk about for years — most of it costs less than dinner out in LA.</p>
     </div>
     <div class="exp-grid">
-      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">El Nido · Tour A · Birthday</div><h3>Big Lagoon by Kayak</h3><p>Paddle inside 200m limestone walls. No motorboats allowed — just kayaks and silence.</p><div class="ec-price">~$33pp · private boat · full day</div></div></div>
-      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">El Nido · Tour C</div><h3>Secret Beach</h3><p>Swim through a cave in a rock wall. Emerge into a completely hidden white-sand cove.</p><div class="ec-price">Included in Tour C · ~$35pp private</div></div></div>
-      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">El Nido · PADI Discover Scuba</div><h3>First Dive · Bacuit Reef</h3><p>No experience needed. Real reef dives — turtles, giant clams, sharks. All gear included.</p><div class="ec-price">~$75pp · gear, guide, boat, lunch all in</div></div></div>
-      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">Coron · Ultimate Tour</div><h3>Kayangan Lake</h3><p>Asia's cleanest lake. Limestone staircase hike opens onto crystal-clear mountain water.</p><div class="ec-price">~$35pp · private boat · all stops</div></div></div>
-      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-1516426122078-c23e76319801?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">Coron · Mar 22</div><h3>🦒 Calauit Safari</h3><p>Real African giraffes and zebras on a tropical Philippine island. The most surreal day of the trip.</p><div class="ec-price">~$45pp all-in · transport, guide, lunch</div></div></div>
-      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-1559628376-f3fe5f782a2e?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">Coron · Mar 21</div><h3>WWII Shipwreck Dives</h3><p>Okikawa Maru at 18m — 1944 Japanese cargo ship. Top-10 wreck dive destination on earth.</p><div class="ec-price">~$90pp · 2 wrecks · full gear</div></div></div>
+      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-qzgmZKsyVsQ?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">El Nido · Tour A · Birthday</div><h3>Big Lagoon by Kayak</h3><p>Paddle inside 200m limestone walls. No motorboats allowed — just kayaks and silence.</p><div class="ec-price">~$33pp · private boat · full day</div></div></div>
+      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-5DJogaWEUH4?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">El Nido · Tour C</div><h3>Secret Beach</h3><p>Swim through a cave in a rock wall. Emerge into a completely hidden white-sand cove.</p><div class="ec-price">Included in Tour C · ~$35pp private</div></div></div>
+      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-FXJf8y_cZA0?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">El Nido · PADI Discover Scuba</div><h3>First Dive · Bacuit Reef</h3><p>No experience needed. Real reef dives — turtles, giant clams, sharks. All gear included.</p><div class="ec-price">~$75pp · gear, guide, boat, lunch all in</div></div></div>
+      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-dxylfBs2Xzc?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">Coron · Ultimate Tour</div><h3>Kayangan Lake</h3><p>Asia's cleanest lake. Limestone staircase hike opens onto crystal-clear mountain water.</p><div class="ec-price">~$35pp · private boat · all stops</div></div></div>
+      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-0xzjOzPC5yM?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">Coron · Mar 22</div><h3>🦒 Calauit Safari</h3><p>Real African giraffes and zebras on a tropical Philippine island. The most surreal day of the trip.</p><div class="ec-price">~$45pp all-in · transport, guide, lunch</div></div></div>
+      <div class="ec"><div class="ec-bg" style="background-image:url('https://images.unsplash.com/photo-Tm0XygW6gN8?w=800&q=80&fit=crop');"></div><div class="ec-ov"></div><div class="ec-body"><div class="ec-lbl">Coron · Mar 21</div><h3>WWII Shipwreck Dives</h3><p>Okikawa Maru at 18m — 1944 Japanese cargo ship. Top-10 wreck dive destination on earth.</p><div class="ec-price">~$90pp · 2 wrecks · full gear</div></div></div>
     </div>
     <div class="photo-strip">
-      <div class="ps"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=75&fit=crop" alt="Sunset"><div class="ps-lbl">Palawan Sunset</div></div>
-      <div class="ps"><img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?w=400&q=75&fit=crop" alt="Tropical aerial"><div class="ps-lbl">Coron Bay</div></div>
-      <div class="ps"><img src="https://images.unsplash.com/photo-1504214208698-ea1916a2195a?w=400&q=75&fit=crop" alt="Ocean boat"><div class="ps-lbl">Island Crossing</div></div>
+      <div class="ps"><img src="https://images.unsplash.com/photo-GoBpd_yNX3s?w=400&q=75&fit=crop" alt="Sunset"><div class="ps-lbl">Palawan Sunset</div></div>
+      <div class="ps"><img src="https://images.unsplash.com/photo-GoBpd_yNX3s?w=400&q=75&fit=crop" alt="Tropical aerial"><div class="ps-lbl">Coron Bay</div></div>
+      <div class="ps"><img src="https://images.unsplash.com/photo-dxylfBs2Xzc?w=400&q=75&fit=crop" alt="Ocean boat"><div class="ps-lbl">Island Crossing</div></div>
     </div>
     <div class="ft" style="padding-top:10px;"><div class="ft-meta">El Nido · Coron · Mar 11–24 · Anicka turns 26</div></div>
   </div>
@@ -785,29 +824,99 @@ img{display:block;width:100%;height:100%;object-fit:cover;}
     </div>
     <div class="sav-bar">
       <span style="font-size:0.95rem;flex-shrink:0;">💰</span>
-      <p>Cook Islands: ~$2,800pp for 10 nights. Palawan: <strong>13 nights, a safari, WWII wrecks, a hot spring</strong> — $400–750 less per person. Every additional person who joins improves the math.</p>
+      <p><strong>Flights, accommodation, activities, and food — all in.</strong> Verified 2026 pricing. The more people who join, the lower every shared cost gets.</p>
     </div>
   </div>
 
   <!-- ══ PAGE: BOOK ══ -->
   <div id="page-book" class="page">
-    <div class="sec" style="padding-top:20px;">
-      <div class="s-label">Before you book</div>
-      <h2 class="s-title">Book in this <em>order</em></h2>
-      <p class="s-body">Some things sell out weeks ahead in peak season. Steps 1 and 2 are time-sensitive.</p>
+    <div class="sec" style="padding-top:28px;">
+      <div class="s-label">We need to know</div>
+      <h2 class="s-title">Are you <em>in?</em></h2>
+      <p class="s-body">Flights and villas need to be locked in together. The sooner everyone confirms, the sooner this becomes real. Here's what committing actually means.</p>
     </div>
-    <div class="lg-grid">
-      <div class="lc"><h4>🗓️ Step 1 — Lock flights now</h4><ul><li>Mar 11–24 at $844 — prices shift unpredictably</li><li>All travelers on same United booking for free bag benefit</li><li>Add MileagePlus numbers to reservation to activate bag waiver</li><li>Confirm all passports valid 6+ months past March 2027</li><li>Group size flexible — more people only improves cost math</li></ul></div>
-      <div class="lc"><h4>🏡 Step 2 — Book villas immediately after</h4><ul><li>El Nido 3-bed pool villa on Airbnb/VRBO for Mar 13–19 (6 nights)</li><li>Coron 3-bed villa Mar 19–24 (5 nights) · generator backup + Starlink wifi</li><li>Prioritize: private pool, AC in all bedrooms, confirmed host response</li><li>Group beyond 6: 4-bed properties exist and split extremely well</li></ul></div>
-      <div class="lc"><h4>✈️ Step 3 — Internal flights</h4><ul><li>AirSwift MNL → Lio Airport (ENI) El Nido — book ASAP, sells out fast</li><li>Cebu Pacific or AirAsia Coron (USU) → Manila for return</li><li>If ENI seats are gone: Puerto Princesa route + 5-hr van is the backup</li></ul></div>
-      <div class="lc"><h4>🏥 Step 4 — Health prep (8+ weeks before)</h4><ul><li>Travel doctor for all travelers — Philippines vaccine recommendations</li><li>Hep A, Typhoid, Tetanus recommended · discuss malaria prophylaxis</li><li>Travel insurance with medical evacuation — every person, no exceptions</li><li>Budget $50–80pp for a policy covering adventure activities</li></ul></div>
-      <div class="lc"><h4>🤿 Step 5 — Activities (4–6 wks before)</h4><ul><li>PADI DSD: Fun Divers El Nido or Palawan Divers — instructor slots limited</li><li>Birthday Tour A private boat — request sunset timing specifically</li><li>Calauit Safari: book through Klook or direct with Coron tour operators</li><li>Coron wreck dives: Discovery Divers or Sea Dive Coron</li><li>Phimal Fast Ferry El Nido → Coron Mar 19 — book online min 5 days prior</li></ul></div>
-      <div class="lc"><h4>📱 Download before departure</h4><ul><li>Grab — Southeast Asia's Uber, works Manila and Puerto Princesa</li><li>Maps.me — offline maps essential for El Nido (spotty data in some areas)</li><li>Wise or Revolut — far better exchange rates than airport conversion</li><li>Bring USD cash for El Nido — ATMs charge fees and run dry at peak</li></ul></div>
+
+    <!-- COMMITMENT CARD -->
+    <div style="margin:0 20px 16px;">
+      <div style="background:linear-gradient(135deg,rgba(15,184,212,0.12),rgba(12,29,43,0.98));border:1px solid rgba(15,184,212,0.25);border-radius:18px;overflow:hidden;">
+        <div style="padding:24px 20px 20px;">
+          <div style="font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-bottom:10px;">What saying yes means</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:#fff;line-height:1.2;margin-bottom:14px;">Lock flights now.<br><em style="color:var(--sand);">Villas right after.</em></div>
+          <p style="font-size:0.82rem;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:20px;">Flights are $844 round trip right now — that price moves. United requires everyone on the same booking for the free bag benefit. Villas in El Nido sell out in peak season. Saying you're in means we move within days, not weeks.</p>
+          
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:14px;background:rgba(15,184,212,0.07);border:1px solid rgba(15,184,212,0.15);border-radius:11px;">
+              <div style="font-size:1.1rem;flex-shrink:0;">✈️</div>
+              <div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--sand);margin-bottom:2px;">Flights · $844 pp</div>
+                <div style="font-size:0.76rem;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.55;">Mar 11–24 via United through SFO. Free 2nd checked bag. LAX United Club lounge before departure. Everyone must be on the same booking.</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:14px;background:rgba(15,184,212,0.07);border:1px solid rgba(15,184,212,0.15);border-radius:11px;">
+              <div style="font-size:1.1rem;flex-shrink:0;">🏡</div>
+              <div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--sand);margin-bottom:2px;">El Nido Villa · 6 nights</div>
+                <div style="font-size:0.76rem;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.55;">Private 3-bed pool villa, Mar 13–19. ~$150–220/night total, split by everyone in. Private pool, AC, Starlink wifi, generator backup.</div>
+              </div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:14px;background:rgba(15,184,212,0.07);border:1px solid rgba(15,184,212,0.15);border-radius:11px;">
+              <div style="font-size:1.1rem;flex-shrink:0;">🏡</div>
+              <div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;color:var(--sand);margin-bottom:2px;">Coron Villa · 5 nights</div>
+                <div style="font-size:0.76rem;font-weight:300;color:rgba(255,255,255,0.4);line-height:1.55;">Private 3-bed villa, Mar 19–24. ~$80–120/night total, split by everyone in. More people = lower cost per person.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOTAL CALLOUT -->
+        <div style="background:rgba(15,184,212,0.1);border-top:1px solid rgba(15,184,212,0.2);padding:16px 20px;display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px;">
+          <div>
+            <div style="font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--teal);">All-in estimate · per person</div>
+            <div style="font-size:0.72rem;color:rgba(255,255,255,0.22);margin-top:2px;">Flights + accommodation + activities + food · 13 nights</div>
+          </div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:#fff;line-height:1;">~$2,044</div>
+        </div>
+      </div>
     </div>
+
+    <!-- WHO'S IN -->
+    <div style="margin:0 20px 16px;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px;">
+      <div style="font-family:'Space Mono',monospace;font-size:0.5rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;">Confirmed so far</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:rgba(74,222,128,0.06);border:1px solid rgba(74,222,128,0.15);border-radius:9px;">
+          <div style="font-size:0.82rem;font-weight:400;color:#fff;">You + Anicka</div>
+          <div style="font-family:'Space Mono',monospace;font-size:0.48rem;color:#4ade80;letter-spacing:0.08em;text-transform:uppercase;">✓ In</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:9px;">
+          <div style="font-size:0.82rem;font-weight:300;color:rgba(255,255,255,0.45);">Lamy + Cameron</div>
+          <div style="font-family:'Space Mono',monospace;font-size:0.48rem;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;">Pending</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:rgba(255,255,255,0.03);border:1px solid var(--border);border-radius:9px;">
+          <div style="font-size:0.82rem;font-weight:300;color:rgba(255,255,255,0.45);">Chloe + Kyle</div>
+          <div style="font-family:'Space Mono',monospace;font-size:0.48rem;color:var(--teal);letter-spacing:0.08em;text-transform:uppercase;">Pending</div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 12px;background:rgba(255,255,255,0.02);border:1px dashed rgba(255,255,255,0.08);border-radius:9px;">
+          <div style="font-size:0.78rem;font-weight:300;color:rgba(255,255,255,0.25);">+ More friends?</div>
+          <div style="font-family:'Space Mono',monospace;font-size:0.48rem;color:rgba(255,255,255,0.2);letter-spacing:0.08em;text-transform:uppercase;">Lower cost 🤙</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- URGENCY NOTE -->
+    <div style="margin:0 20px 20px;padding:13px 14px;background:rgba(255,92,62,0.06);border:1px solid rgba(255,92,62,0.18);border-radius:11px;display:flex;gap:9px;align-items:flex-start;">
+      <span style="font-size:0.95rem;flex-shrink:0;">⏱️</span>
+      <p style="font-size:0.78rem;color:rgba(255,255,255,0.46);line-height:1.65;">March is peak season in Palawan. Flight prices at $844 won't hold indefinitely and El Nido pool villas sell out months ahead. If you're in, say so now so flights can be locked.</p>
+    </div>
+
     <div class="ft">
       <div class="ft-title">Palawan, 2027</div>
       <div class="ft-meta">El Nido · Coron · Mar 11–24 · Anicka turns 26</div>
-      <div class="crew-row"><span class="cb">The Original Crew</span><span class="cb">+ whoever's in 🤙</span><span class="cb">Cook Islands Trip 01 ✓</span><span class="cb">Palawan Trip 02</span></div>
+      <div class="crew-row">
+        <span class="cb">The Crew · March 2027</span>
+        <span class="cb">+ whoever's in 🤙</span>
+        <span class="cb">Palawan Trip 02</span>
+      </div>
     </div>
   </div>
 
